@@ -10,6 +10,12 @@ module.exports = {
     '^@pages$': '<rootDir>/src/pages/index.ts',
     '^@shadcn/(.*)$': '<rootDir>/src/shadcn/$1',
     '^@shadcn$': '<rootDir>/src/shadcn/index.ts',
+    '^@entities/(.*)$': '<rootDir>/src/entities/$1',
+    '^@entities$': '<rootDir>/src/entities/index.ts',
+    '^@features/(.*)$': '<rootDir>/src/features/$1',
+    '^@features$': '<rootDir>/src/features/index.ts',
+    '^@constants/(.*)$': '<rootDir>/src/constants/$1',
+    '^@constants$': '<rootDir>/src/constants/index.ts',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
 };
