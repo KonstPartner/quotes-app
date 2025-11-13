@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["jest"],
+    "paths": {
+      "@app/*": ["./src/app/*"],
+      "@app": ["./src/app/index.ts"],
+      "@pages/*": ["./src/pages/*"],
+      "@pages": ["./src/pages/index.ts"],
+      "@shadcn/*": ["./src/shadcn/*"],
+      "@shadcn": ["./src/shadcn/index.ts"],
+    }
+  },
+  "include": ["src", "global.d.ts", "src/__tests__"]
+}
