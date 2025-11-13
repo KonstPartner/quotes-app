@@ -23,6 +23,12 @@
       "@pages": ["./src/pages/index.ts"],
       "@shadcn/*": ["./src/shadcn/*"],
       "@shadcn": ["./src/shadcn/index.ts"],
+      "@entities/*": ["./src/entities/*"],
+      "@entities": ["./src/entities/index.ts"],
+      "@features/*": ["./src/features/*"],
+      "@features": ["./src/features/index.ts"],
+      "@constants/*": ["./src/constants/*"],
+      "@constants": ["./src/constants/index.ts"]
     }
   },
   "include": ["src", "global.d.ts", "src/__tests__"]

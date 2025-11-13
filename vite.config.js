@@ -32,6 +32,9 @@ export default defineConfig({
       '@app': path.resolve(__dirname, './src/app'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@shadcn': path.resolve(__dirname, './src/shadcn'),
+      '@entities': path.resolve(__dirname, './src/entities'),
+      '@features': path.resolve(__dirname, './src/features'),
+      '@constants': path.resolve(__dirname, './src/constants'),
     },
   },
 });
