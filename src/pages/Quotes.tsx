@@ -1,11 +1,7 @@
-import { Quote } from '@features/quotes/model/types';
-import { QuotesList } from '@features/quotes/ui';
-
-import QUOTES_JSON from '../data/Quotes.json';
+import { QuotesList } from '@entities/quotes';
+import { Loader } from '@features/shared';
 
 const QuotesPage = () => {
-  const quotes = QUOTES_JSON.quotes as Quote[];
-
   return (
     <div className="container space-y-10">
       <section className="space-y-2 text-center">
@@ -21,7 +17,9 @@ const QuotesPage = () => {
         </p>
       </section>
 
-      <QuotesList quotes={quotes} />
+      <Loader>
+        <QuotesList />
+      </Loader>
     </div>
   );
 };

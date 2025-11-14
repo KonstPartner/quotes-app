@@ -1,6 +1,6 @@
 import { QuoteIcon } from 'lucide-react';
 
-import { Quote } from '@features/quotes/model/types';
+import { Quote } from '@features/quotes/model';
 
 const QuoteCard = ({ quoteData }: { quoteData: Quote }) => {
   const { id, author, quote } = quoteData;
