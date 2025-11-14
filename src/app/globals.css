@@ -34,6 +34,9 @@
     --ring: oklch(0.704 0.04 256.788);
 
     --radius: 0.625rem;
+
+    --star: oklch(92% 0.15 95);
+    --sky: oklch(85% 0.05 240);
   }
 
   .dark {
@@ -64,6 +67,9 @@
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.551 0.027 264.364);
+
+    --star: oklch(98% 0.02 260);
+    --sky: oklch(20% 0.03 260);
   }
 
   * {
@@ -138,6 +144,19 @@
 @layer utilities {
   .container {
     @apply max-w-[1440px] px-3;
+  }
+
+  .bg-sky-star {
+    background: radial-gradient(
+      circle at top left,
+      var(--star) 0%,
+      var(--sky) 40%,
+      var(--sky) 100%
+    );
+  }
+
+  .bg-sky-star-blur {
+    backdrop-filter: blur(40px);
   }
 }
 

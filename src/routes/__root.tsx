@@ -25,8 +25,7 @@ const RootLayout = () => {
         theme={theme}
         setTheme={setTheme}
       />
-
-      <main>
+      <main className="bg-sky-star bg-sky-star-blur flex justify-center py-13">
         <Outlet />
       </main>
 
