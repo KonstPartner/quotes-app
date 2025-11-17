@@ -19,6 +19,7 @@ exports[`Header matches snapshot 1`] = `
           class="flex items-center gap-6"
         >
           <li />
+          <li />
         </ul>
       </nav>
       <div
