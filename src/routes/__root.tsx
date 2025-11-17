@@ -11,7 +11,7 @@ const RootLayout = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <Header
         theme={theme}
         setTheme={setTheme}
@@ -25,8 +25,7 @@ const RootLayout = () => {
         theme={theme}
         setTheme={setTheme}
       />
-
-      <main>
+      <main className="bg-sky-star bg-sky-star-blur flex grow justify-center py-13">
         <Outlet />
       </main>
 

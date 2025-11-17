@@ -20,7 +20,7 @@ export default [
         ecmaFeatures: { jsx: true },
         projectService: false,
       },
-      globals: { ...globals.browser, ...globals.es2021 },
+      globals: { ...globals.browser, ...globals.es2021, RequestInit: true },
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
@@ -53,6 +53,9 @@ export default [
               '^@entities(/.*)?$',
               '^@features(/.*)?$',
               '^@constants(/.*)?$',
+              '^@utils(/.*)?$',
+              '^@shared(/.*)?$',
+              '^@hooks(/.*)?$',
             ],
             ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
             ['^\\./(?!/?$)', '^\\./?$'],

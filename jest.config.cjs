@@ -16,6 +16,12 @@ module.exports = {
     '^@features$': '<rootDir>/src/features/index.ts',
     '^@constants/(.*)$': '<rootDir>/src/constants/$1',
     '^@constants$': '<rootDir>/src/constants/index.ts',
+    '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@utils$': '<rootDir>/src/utils/index.ts',
+    '^@shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^@shared$': '<rootDir>/src/shared/index.ts',
+    '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@hooks$': '<rootDir>/src/hooks/index.ts',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
 };
