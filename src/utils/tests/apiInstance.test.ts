@@ -1,6 +1,4 @@
-import { API_BASE_URL } from '@constants/api';
-
-import { jsonApiInstance } from '../apiInstance';
+import { apiInstance } from '../apiInstance';
 
 class MockResponse {
   constructor(
@@ -26,10 +24,10 @@ describe('jsonApiInstance', () => {
       new MockResponse(true, mockData)
     );
 
-    const result = await jsonApiInstance('/test');
+    const result = await apiInstance('url')('/test');
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      `${API_BASE_URL}/test`,
+      'url/test',
       expect.any(Object)
     );
 
@@ -44,13 +42,13 @@ describe('jsonApiInstance', () => {
       new MockResponse(true, mockData)
     );
 
-    const result = await jsonApiInstance('/post', {
+    const result = await apiInstance('url')('/post', {
       method: 'POST',
       json: payload,
     });
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      `${API_BASE_URL}/post`,
+      'url/post',
       expect.objectContaining({
         method: 'POST',
         body: JSON.stringify(payload),
@@ -71,14 +69,14 @@ describe('jsonApiInstance', () => {
       new MockResponse(true, mockData)
     );
 
-    await jsonApiInstance('/custom', {
+    await apiInstance('url')('/custom', {
       method: 'POST',
       json: payload,
       headers: { Authorization: 'Bearer token' },
     });
 
     expect(globalThis.fetch).toHaveBeenCalledWith(
-      `${API_BASE_URL}/custom`,
+      'url/custom',
       expect.objectContaining({
         headers: {
           'Content-Type': 'application/json',
@@ -93,6 +91,6 @@ describe('jsonApiInstance', () => {
       new MockResponse(false, { message: 'Fail' }, 500)
     );
 
-    await expect(jsonApiInstance('/error')).rejects.toThrow('ApiError:500');
+    await expect(apiInstance('url')('/error')).rejects.toThrow('ApiError:500');
   });
 });
