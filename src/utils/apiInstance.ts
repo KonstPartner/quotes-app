@@ -31,7 +31,7 @@ export const apiInstance =
 
     const data = await res.json();
 
-    const totalHeader = res.headers.get('X-Total-Count');
+    const totalHeader = res.headers?.get('X-Total-Count');
     if (totalHeader) {
       return { data, total: Number(totalHeader) || undefined } as T;
     }

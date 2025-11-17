@@ -1,12 +1,15 @@
 import { queryOptions } from '@tanstack/react-query';
 
 import type {
+  CreateQuoteDto,
   LocalQuotesResponse,
+  Quote,
   QuotesResponse,
 } from '@features/quotes/model';
 import { dummyApi, localApi } from '@constants/api';
 
 import {
+  API_QUOTES_PATH,
   getLocalQuotesEndpointWithQuery,
   getQuotesEndpointWithQuery,
   QUOTES_LIMIT,
@@ -40,5 +43,11 @@ export const localQuotesApi = {
           getLocalQuotesEndpointWithQuery(QUOTES_LIMIT, page),
           { signal }
         ),
+    }),
+
+  createLocalQuote: (payload: CreateQuoteDto) =>
+    localApi<Quote>(API_QUOTES_PATH, {
+      method: 'POST',
+      json: payload,
     }),
 };

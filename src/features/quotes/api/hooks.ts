@@ -1,4 +1,10 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
+import {
+  useMutation,
+  useQueryClient,
+  useSuspenseQuery,
+} from '@tanstack/react-query';
+
+import { CreateQuoteDto } from '../model';
 
 import { QUOTES_LIMIT } from './constants';
 import { localQuotesApi, quotesApi } from './quotesApi';
@@ -27,4 +33,18 @@ export const useSuspenseLocalQuotes = (page: number) => {
     totalPages,
     refetch,
   };
+};
+
+export const useCreateLocalQuote = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (payload: CreateQuoteDto) =>
+      localQuotesApi.createLocalQuote(payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [localQuotesApi.baseKey],
+      });
+    },
+  });
 };
