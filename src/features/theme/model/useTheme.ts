@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import type { ThemeType } from './types';
+import type { ThemeType } from '@features/theme/model';
 
 const THEME_STORAGE_KEY = 'theme';
 

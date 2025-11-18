@@ -1,8 +1,15 @@
 import { QuoteIcon } from 'lucide-react';
 
+import { EditQuoteIcon } from '@entities/quotes';
 import { Quote } from '@features/quotes/model';
 
-const QuoteCard = ({ quoteData }: { quoteData: Quote }) => {
+const QuoteCard = ({
+  quoteData,
+  isLocal = false,
+}: {
+  quoteData: Quote;
+  isLocal?: boolean;
+}) => {
   const { id, author, quote } = quoteData;
 
   return (
@@ -22,6 +29,7 @@ const QuoteCard = ({ quoteData }: { quoteData: Quote }) => {
 
       <footer className="text-muted-foreground mt-2 flex items-center justify-between text-xs">
         <span>— {author}</span>
+        {isLocal && <EditQuoteIcon id={id} />}
       </footer>
 
       <div

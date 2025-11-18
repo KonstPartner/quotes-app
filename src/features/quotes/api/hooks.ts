@@ -4,12 +4,15 @@ import {
   useSuspenseQuery,
 } from '@tanstack/react-query';
 
-import { CreateQuoteDto } from '../model';
+import { localQuotesApi, QUOTES_LIMIT, quotesApi } from '@features/quotes/api';
+import {
+  CreateQuoteDto,
+  LocalQuotesResponse,
+  Quote,
+  UpdateQuoteDto,
+} from '@features/quotes/model';
 
-import { QUOTES_LIMIT } from './constants';
-import { localQuotesApi, quotesApi } from './quotesApi';
-
-export const useSuspenseQuotesPage = (page: number) => {
+export const useSuspenseQuotes = (page: number) => {
   const { data, refetch } = useSuspenseQuery(
     quotesApi.getPageQuotesOptions({ page })
   );
@@ -47,4 +50,46 @@ export const useCreateLocalQuote = () => {
       });
     },
   });
+};
+
+export const useUpdateLocalQuote = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (payload: UpdateQuoteDto) =>
+      localQuotesApi.updateLocalQuote(payload),
+    onSuccess: (updatedQuote: Quote) => {
+      queryClient.setQueryData(
+        [localQuotesApi.baseKey, 'byId', updatedQuote.id],
+        updatedQuote
+      );
+
+      const pages = queryClient.getQueriesData<LocalQuotesResponse>({
+        queryKey: [localQuotesApi.baseKey, 'page'],
+      });
+
+      for (const [queryKey, pageData] of pages) {
+        if (!pageData) {
+          continue;
+        }
+
+        const newQuotes = pageData.data.map((q) =>
+          q.id === updatedQuote.id ? updatedQuote : q
+        );
+
+        queryClient.setQueryData(queryKey, {
+          ...pageData,
+          data: newQuotes,
+        });
+      }
+    },
+  });
+};
+
+export const useLocalQuoteById = (id: number) => {
+  const queryClient = useQueryClient();
+
+  return useSuspenseQuery(
+    localQuotesApi.getLocalQuoteByIdOptions(id, queryClient)
+  );
 };

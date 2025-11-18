@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { QuotesSection } from '@entities/quotes';
-import { useSuspenseQuotesPage } from '@features/quotes/api';
+import { useSuspenseQuotes } from '@features/quotes/api';
 import useScrollIntoView from '@hooks/useScrollIntoView';
 
 const QuotesContainer = () => {
@@ -9,7 +9,7 @@ const QuotesContainer = () => {
   const { ref: listRef, handleScroll } = useScrollIntoView<[number]>(
     (nextPage) => setPage(nextPage)
   );
-  const { quotes, totalPages } = useSuspenseQuotesPage(page);
+  const { quotes, totalPages } = useSuspenseQuotes(page);
 
   return (
     <QuotesSection

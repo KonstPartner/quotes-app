@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { Header } from '@entities/header';
 import type { ThemeType } from '@features/theme/model';
-
-import Header from '../Header';
 
 jest.mock('@tanstack/react-router', () => {
   const actual = jest.requireActual('@tanstack/react-router');
