@@ -10,3 +10,13 @@ export type QuotesResponse = {
   skip: number;
   limit: number;
 };
+
+export type LocalQuotesResponse = {
+  data: Quote[];
+  total: number;
+};
+
+export type CreateQuoteDto = {
+  author: string;
+  quote: string;
+};

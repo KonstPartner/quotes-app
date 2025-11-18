@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { useSuspenseQuotesPage } from '@features/quotes/api';
 import useScrollIntoView from '@hooks/useScrollIntoView';
 
-import QuotesSection from '../QuotesSection';
+import QuotesContainer from '../QuotesContainer';
 
 jest.mock('@features/quotes/api');
 jest.mock('@hooks/useScrollIntoView');
@@ -38,7 +38,7 @@ describe('QuotesSection', () => {
       handleScroll: handleScrollMock,
     });
 
-    render(<QuotesSection />);
+    render(<QuotesContainer />);
 
     expect(screen.getByText(/First quote/i)).toBeInTheDocument();
     expect(screen.getByText(/Second quote/i)).toBeInTheDocument();
@@ -63,7 +63,7 @@ describe('QuotesSection', () => {
       handleScroll: handleScrollMock,
     });
 
-    render(<QuotesSection />);
+    render(<QuotesContainer />);
 
     const page2Button = screen.getByRole('button', { name: '2' });
     fireEvent.click(page2Button);

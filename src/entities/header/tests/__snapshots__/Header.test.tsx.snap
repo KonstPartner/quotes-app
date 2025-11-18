@@ -20,6 +20,8 @@ exports[`Header matches snapshot 1`] = `
         >
           <li />
           <li />
+          <li />
+          <li />
         </ul>
       </nav>
       <div

@@ -1,9 +1,19 @@
 import { queryOptions } from '@tanstack/react-query';
 
-import type { QuotesResponse } from '@features/quotes/model';
-import { jsonApiInstance } from '@utils';
+import type {
+  CreateQuoteDto,
+  LocalQuotesResponse,
+  Quote,
+  QuotesResponse,
+} from '@features/quotes/model';
+import { dummyApi, localApi } from '@constants/api';
 
-import { getQuotesEndpointWithQuery, QUOTES_LIMIT } from './constants';
+import {
+  API_QUOTES_PATH,
+  getLocalQuotesEndpointWithQuery,
+  getQuotesEndpointWithQuery,
+  QUOTES_LIMIT,
+} from './constants';
 
 export const quotesApi = {
   baseKey: 'quotes',
@@ -14,10 +24,30 @@ export const quotesApi = {
     return queryOptions({
       queryKey: [quotesApi.baseKey, 'page', page],
       queryFn: ({ signal }) =>
-        jsonApiInstance<QuotesResponse>(
+        dummyApi<QuotesResponse>(
           getQuotesEndpointWithQuery(QUOTES_LIMIT, skip),
           { signal }
         ),
     });
   },
+};
+
+export const localQuotesApi = {
+  baseKey: 'localQuotes',
+
+  getLocalQuotesPageOptions: (page: number) =>
+    queryOptions({
+      queryKey: [localQuotesApi.baseKey, 'page', page],
+      queryFn: async ({ signal }) =>
+        localApi<LocalQuotesResponse>(
+          getLocalQuotesEndpointWithQuery(QUOTES_LIMIT, page),
+          { signal }
+        ),
+    }),
+
+  createLocalQuote: (payload: CreateQuoteDto) =>
+    localApi<Quote>(API_QUOTES_PATH, {
+      method: 'POST',
+      json: payload,
+    }),
 };

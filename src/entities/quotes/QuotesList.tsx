@@ -10,6 +10,10 @@ const QuotesList = ({
   listRef: RefObject<HTMLDivElement | null>;
   quotes: Quote[];
 }) => {
+  if (!quotes.length) {
+    return <p className="text-center">No quotes found.</p>;
+  }
+
   return (
     <div
       ref={listRef}

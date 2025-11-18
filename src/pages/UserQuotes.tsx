@@ -1,17 +1,17 @@
 import { WelcomeSection } from '@entities/quotes';
-import { QuotesContainer } from '@features/quotes/ui';
+import { UserQuotesContainer } from '@features/quotes/ui';
 import { Loader } from '@features/shared';
 
-const Quotes = () => {
+const UserQuotes = () => {
   return (
     <div className="container space-y-10">
       <WelcomeSection />
 
       <Loader>
-        <QuotesContainer />
+        <UserQuotesContainer />
       </Loader>
     </div>
   );
 };
 
-export default Quotes;
+export default UserQuotes;
