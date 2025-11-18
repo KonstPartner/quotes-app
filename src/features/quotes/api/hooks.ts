@@ -4,15 +4,13 @@ import {
   useSuspenseQuery,
 } from '@tanstack/react-query';
 
+import { localQuotesApi, QUOTES_LIMIT, quotesApi } from '@features/quotes/api';
 import {
   CreateQuoteDto,
   LocalQuotesResponse,
   Quote,
   UpdateQuoteDto,
-} from '../model';
-
-import { QUOTES_LIMIT } from './constants';
-import { localQuotesApi, quotesApi } from './quotesApi';
+} from '@features/quotes/model';
 
 export const useSuspenseQuotes = (page: number) => {
   const { data, refetch } = useSuspenseQuery(

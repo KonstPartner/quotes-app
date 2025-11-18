@@ -1,9 +1,8 @@
 import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 
+import { QuotesList } from '@entities/quotes';
 import type { Quote } from '@features/quotes/model';
-
-import QuotesList from '../QuotesList';
 
 describe('QuotesList', () => {
   it('renders a QuoteCard for each quote', () => {

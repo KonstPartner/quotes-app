@@ -1,9 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { useSuspenseQuotes } from '@features/quotes/api';
+import { QuotesContainer } from '@features/quotes/ui';
 import useScrollIntoView from '@hooks/useScrollIntoView';
-
-import QuotesContainer from '../QuotesContainer';
 
 jest.mock('@features/quotes/api');
 jest.mock('@hooks/useScrollIntoView');

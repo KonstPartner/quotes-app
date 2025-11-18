@@ -1,4 +1,4 @@
-import { apiInstance } from '../apiInstance';
+import { apiInstance } from '@utils';
 
 class MockResponse {
   constructor(

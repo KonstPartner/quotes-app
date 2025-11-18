@@ -1,9 +1,8 @@
 import { FormEvent, useState } from 'react';
 import { useRouter } from '@tanstack/react-router';
 
-import { useCreateLocalQuote } from '../api';
-
-import { CreateQuoteDto } from './types';
+import { useCreateLocalQuote } from '@features/quotes/api';
+import { CreateQuoteDto } from '@features/quotes/model';
 
 const useCreateQuoteForm = () => {
   const router = useRouter();

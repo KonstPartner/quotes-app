@@ -1,4 +1,4 @@
-import { Quote } from '../model';
+import { Quote } from '@features/quotes/model';
 
 export const API_QUOTES_PATH = '/quotes';
 

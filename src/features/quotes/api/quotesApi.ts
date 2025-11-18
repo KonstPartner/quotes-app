@@ -1,5 +1,12 @@
 import { QueryClient, queryOptions } from '@tanstack/react-query';
 
+import {
+  API_QUOTES_PATH,
+  getLocalQuoteEndpoint,
+  getLocalQuotesEndpointWithQuery,
+  getQuotesEndpointWithQuery,
+  QUOTES_LIMIT,
+} from '@features/quotes/api';
 import type {
   CreateQuoteDto,
   LocalQuotesResponse,
@@ -8,14 +15,6 @@ import type {
   UpdateQuoteDto,
 } from '@features/quotes/model';
 import { dummyApi, localApi } from '@constants/api';
-
-import {
-  API_QUOTES_PATH,
-  getLocalQuoteEndpoint,
-  getLocalQuotesEndpointWithQuery,
-  getQuotesEndpointWithQuery,
-  QUOTES_LIMIT,
-} from './constants';
 
 export const quotesApi = {
   baseKey: 'quotes',

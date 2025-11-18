@@ -1,8 +1,7 @@
 import { render } from '@testing-library/react';
 
+import { QuoteCard } from '@entities/quotes';
 import type { Quote } from '@features/quotes/model';
-
-import QuoteCard from '../QuoteCard';
 
 describe('QuoteCard snapshot', () => {
   it('renders quote card correctly', () => {

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ToggleTheme from '../ToggleTheme';
+import { ToggleTheme } from '@features/theme/ui';
 
 describe('ToggleTheme', () => {
   it('marks only light button as checked when theme="light"', () => {

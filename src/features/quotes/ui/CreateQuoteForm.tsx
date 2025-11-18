@@ -1,8 +1,7 @@
 import { useRouter } from '@tanstack/react-router';
 
 import QuoteForm from '@entities/quotes/QuoteForm';
-
-import { useCreateLocalQuote } from '../api';
+import { useCreateLocalQuote } from '@features/quotes/api';
 
 const CreateQuoteForm = () => {
   const router = useRouter();

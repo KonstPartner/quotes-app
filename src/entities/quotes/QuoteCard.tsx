@@ -1,8 +1,7 @@
 import { QuoteIcon } from 'lucide-react';
 
+import { EditQuoteIcon } from '@entities/quotes';
 import { Quote } from '@features/quotes/model';
-
-import EditQuoteIcon from './EditQuoteIcon';
 
 const QuoteCard = ({
   quoteData,

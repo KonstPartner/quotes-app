@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import QuoteForm from '../QuoteForm';
+import { QuoteForm } from '@entities/quotes';
 
 describe('CreateForm', () => {
   it('renders form fields and submit button', () => {
@@ -52,7 +52,7 @@ describe('CreateForm', () => {
       />
     );
 
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('button', { name: /save quote/i });
     await user.click(button);
 
     expect(handleSubmitMock).toHaveBeenCalledTimes(1);
@@ -75,7 +75,7 @@ describe('CreateForm', () => {
       />
     );
 
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('button', { name: /saving…/i });
 
     expect(button).toBeDisabled();
   });
@@ -98,6 +98,65 @@ describe('CreateForm', () => {
     );
 
     expect(screen.getByText(/failed to save quote/i)).toBeInTheDocument();
+  });
+
+  it('passes form values to onSubmit', async () => {
+    const user = userEvent.setup();
+
+    const handleSubmitMock = jest.fn(
+      async (_: { quote: string; author: string }) => {}
+    );
+
+    render(
+      <QuoteForm
+        title="Add your quote"
+        initialQuote=""
+        initialAuthor=""
+        submitLabel="Save quote"
+        isPending={false}
+        error={null}
+        onSubmit={handleSubmitMock}
+      />
+    );
+
+    const quoteInput = screen.getByLabelText(/quote/i);
+    const authorInput = screen.getByLabelText(/author/i);
+    const button = screen.getByRole('button', { name: /save quote/i });
+
+    await user.type(quoteInput, 'Test quote');
+    await user.type(authorInput, 'Test author');
+    await user.click(button);
+
+    expect(handleSubmitMock).toHaveBeenCalledTimes(1);
+    expect(handleSubmitMock).toHaveBeenCalledWith({
+      quote: 'Test quote',
+      author: 'Test author',
+    });
+  });
+
+  it('does not call onSubmit when fields are empty', async () => {
+    const user = userEvent.setup();
+    const handleSubmitMock = jest.fn(
+      async (_: { quote: string; author: string }) => {}
+    );
+
+    render(
+      <QuoteForm
+        title="Add your quote"
+        initialQuote=""
+        initialAuthor=""
+        submitLabel="Save quote"
+        isPending={false}
+        error={null}
+        onSubmit={handleSubmitMock}
+      />
+    );
+
+    const button = screen.getByRole('button', { name: /save quote/i });
+
+    await user.click(button);
+
+    expect(handleSubmitMock).not.toHaveBeenCalled();
   });
 
   it('matches snapshot', () => {
