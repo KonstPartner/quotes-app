@@ -17,6 +17,7 @@ const UserQuotesContainer = () => {
       quotes={quotes}
       metadata={{ currentPage: page, totalPages }}
       handleScroll={handleScroll}
+      isLocal
     />
   );
 };

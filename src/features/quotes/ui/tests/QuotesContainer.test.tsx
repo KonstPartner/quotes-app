@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { useSuspenseQuotesPage } from '@features/quotes/api';
+import { useSuspenseQuotes } from '@features/quotes/api';
 import useScrollIntoView from '@hooks/useScrollIntoView';
 
 import QuotesContainer from '../QuotesContainer';
@@ -8,8 +8,9 @@ import QuotesContainer from '../QuotesContainer';
 jest.mock('@features/quotes/api');
 jest.mock('@hooks/useScrollIntoView');
 
-const mockedUseSuspenseQuotesPage =
-  useSuspenseQuotesPage as jest.MockedFunction<typeof useSuspenseQuotesPage>;
+const mockedUseSuspenseQuotesPage = useSuspenseQuotes as jest.MockedFunction<
+  typeof useSuspenseQuotes
+>;
 const mockedUseScrollIntoView = useScrollIntoView as jest.MockedFunction<
   typeof useScrollIntoView
 >;

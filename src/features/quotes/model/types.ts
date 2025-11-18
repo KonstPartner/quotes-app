@@ -20,3 +20,9 @@ export type CreateQuoteDto = {
   author: string;
   quote: string;
 };
+
+export type UpdateQuoteDto = {
+  id: number;
+  author: string;
+  quote: string;
+};
