@@ -1,7 +1,7 @@
 import { Button, Input, Textarea } from '@shadcn';
 import useCreateQuoteForm from '@features/quotes/model/useCreateQuoteForm';
 
-const UserQuoteCreateForm = () => {
+const CreateQuoteForm = () => {
   const {
     quote,
     setQuote,
@@ -71,4 +71,4 @@ const UserQuoteCreateForm = () => {
   );
 };
 
-export default UserQuoteCreateForm;
+export default CreateQuoteForm;

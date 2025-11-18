@@ -1,5 +1,5 @@
 import { WelcomeSection } from '@entities/quotes';
-import { QuotesSection } from '@features/quotes/ui';
+import { QuotesContainer } from '@features/quotes/ui';
 import { Loader } from '@features/shared';
 
 const Quotes = () => {
@@ -8,7 +8,7 @@ const Quotes = () => {
       <WelcomeSection />
 
       <Loader>
-        <QuotesSection />
+        <QuotesContainer />
       </Loader>
     </div>
   );

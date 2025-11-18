@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-import { QuotesList } from '@entities/quotes';
+import { QuotesSection } from '@entities/quotes';
 import { useSuspenseLocalQuotes } from '@features/quotes/api';
-import { PaginationBar } from '@features/shared/pagination/ui';
 import useScrollIntoView from '@hooks/useScrollIntoView';
 
-const UserQuotesSection = () => {
+const UserQuotesContainer = () => {
   const [page, setPage] = useState(1);
   const { ref: listRef, handleScroll } = useScrollIntoView<[number]>(
     (nextPage) => setPage(nextPage)
@@ -13,14 +12,13 @@ const UserQuotesSection = () => {
   const { quotes, totalPages } = useSuspenseLocalQuotes(page);
 
   return (
-    <section>
-      <QuotesList listRef={listRef} quotes={quotes} />
-      <PaginationBar
-        metadata={{ currentPage: page, totalPages }}
-        onPageChange={handleScroll}
-      />
-    </section>
+    <QuotesSection
+      listRef={listRef}
+      quotes={quotes}
+      metadata={{ currentPage: page, totalPages }}
+      handleScroll={handleScroll}
+    />
   );
 };
 
-export default UserQuotesSection;
+export default UserQuotesContainer;
