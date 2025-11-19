@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import type { Dispatch, SetStateAction } from 'react';
 
 import { Logo, NavLink } from '@entities/header';
+import AuthButton from '@features/auth/ui/AuthButton';
 import { ThemeType } from '@features/theme/model';
 import { ToggleTheme } from '@features/theme/ui';
 import { NAV_LINKS } from '@constants';
@@ -71,8 +72,9 @@ const SideNav = ({
             </ul>
           </nav>
 
-          <div className="border-border flex justify-center border-t pt-3">
+          <div className="border-border flex flex-col items-center justify-center gap-5 border-t pt-3">
             <ToggleTheme theme={theme} setTheme={setTheme} />
+            <AuthButton />
           </div>
         </aside>
       </div>

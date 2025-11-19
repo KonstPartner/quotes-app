@@ -12,6 +12,11 @@ jest.mock('@tanstack/react-router', () => {
   };
 });
 
+jest.mock('@features/auth/ui/AuthButton', () => ({
+  __esModule: true,
+  default: () => <button>Auth</button>,
+}));
+
 describe('Header', () => {
   const renderHeader = (theme: ThemeType = 'light') => {
     const setTheme = jest.fn();

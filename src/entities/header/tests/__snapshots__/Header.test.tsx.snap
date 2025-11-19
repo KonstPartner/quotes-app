@@ -9,7 +9,7 @@ exports[`Header matches snapshot 1`] = `
     class="container flex items-center justify-between gap-4"
   >
     <div
-      class="hidden items-center gap-8 md:flex"
+      class="hidden items-center gap-5 md:flex lg:gap-8"
     >
       <nav
         aria-label="Main navigation"
@@ -147,6 +147,9 @@ exports[`Header matches snapshot 1`] = `
           </svg>
         </button>
       </div>
+      <button>
+        Auth
+      </button>
     </div>
     <div
       class="md:hidden"

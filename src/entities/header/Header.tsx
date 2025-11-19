@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
 import { Burger, Logo, NavBar } from '@entities/header';
+import AuthButton from '@features/auth/ui/AuthButton';
 import { ThemeType } from '@features/theme/model';
 import { ToggleTheme } from '@features/theme/ui';
 
@@ -23,10 +24,12 @@ const Header = ({
       <div className="container flex items-center justify-between gap-4">
         <Logo />
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-5 md:flex lg:gap-8">
           <NavBar />
           <ToggleTheme theme={theme} setTheme={setTheme} />
+          <AuthButton />
         </div>
+
         <div className="md:hidden">
           <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuotesRouteImport } from './routes/quotes'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UserQuotesIndexRouteImport } from './routes/user-quotes/index'
 import { Route as UserQuotesCreateRouteImport } from './routes/user-quotes/create'
@@ -18,6 +19,11 @@ import { Route as UserQuotesIdEditRouteImport } from './routes/user-quotes/$id/e
 const QuotesRoute = QuotesRouteImport.update({
   id: '/quotes',
   path: '/quotes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +49,7 @@ const UserQuotesIdEditRoute = UserQuotesIdEditRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/quotes': typeof QuotesRoute
   '/user-quotes/create': typeof UserQuotesCreateRoute
   '/user-quotes': typeof UserQuotesIndexRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/quotes': typeof QuotesRoute
   '/user-quotes/create': typeof UserQuotesCreateRoute
   '/user-quotes': typeof UserQuotesIndexRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/quotes': typeof QuotesRoute
   '/user-quotes/create': typeof UserQuotesCreateRoute
   '/user-quotes/': typeof UserQuotesIndexRoute
@@ -67,6 +76,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
     | '/quotes'
     | '/user-quotes/create'
     | '/user-quotes'
@@ -74,6 +84,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
     | '/quotes'
     | '/user-quotes/create'
     | '/user-quotes'
@@ -81,6 +92,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/login'
     | '/quotes'
     | '/user-quotes/create'
     | '/user-quotes/'
@@ -89,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
   QuotesRoute: typeof QuotesRoute
   UserQuotesCreateRoute: typeof UserQuotesCreateRoute
   UserQuotesIndexRoute: typeof UserQuotesIndexRoute
@@ -102,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/quotes'
       fullPath: '/quotes'
       preLoaderRoute: typeof QuotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -137,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
   QuotesRoute: QuotesRoute,
   UserQuotesCreateRoute: UserQuotesCreateRoute,
   UserQuotesIndexRoute: UserQuotesIndexRoute,
