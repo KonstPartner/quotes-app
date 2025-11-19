@@ -13,7 +13,12 @@ const AuthButton = () => {
   if (user) {
     return (
       <div className="flex items-center gap-2">
-        <span className="text-muted-foreground text-xs">{user.username}</span>
+        <span
+          className="text-muted-foreground w-8 truncate text-xs lg:w-15"
+          title={user.username}
+        >
+          {user.username}
+        </span>
         <Button type="button" size="sm" variant="outline" onClick={logout}>
           Logout
         </Button>

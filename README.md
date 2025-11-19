@@ -50,3 +50,10 @@ npm run api
 
 > Local API is **available only in local development or production mode**.
 > In deployments (e.g., GitHub Pages), this feature is not working.
+
+---
+
+## Notes
+
+> Authentication in this app is **implemented purely on the client**, using json-server as a mock backend.
+> Passwords are hashed on the client side only to avoid storing plain-text passwords in db.json,

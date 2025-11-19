@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { useRouter } from '@tanstack/react-router';
 
 import { useLogin, useRegister } from '@features/auth/api';
-import { AuthMode, useAuth } from '@features/auth/model';
+import { AuthMode, hashPassword, useAuth } from '@features/auth/model';
 
 const useAuthFormSection = () => {
   const [mode, setMode] = useState<AuthMode>('login');
@@ -40,7 +40,13 @@ const useAuthFormSection = () => {
 
     setPasswordError(null);
 
-    const user = await registerMutate({ username, password });
+    const passwordHash = await hashPassword(password);
+
+    const user = await registerMutate({
+      username,
+      password: passwordHash,
+    });
+
     login(user);
     router.navigate({ to: '/' });
   };
@@ -56,7 +62,13 @@ const useAuthFormSection = () => {
       return;
     }
 
-    const user = await loginMutate({ username, password });
+    const passwordHash = await hashPassword(password);
+
+    const user = await loginMutate({
+      username,
+      password: passwordHash,
+    });
+
     login(user);
     router.navigate({ to: '/' });
   };
