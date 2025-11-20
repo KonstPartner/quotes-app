@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
 jest.mock('@features/auth/model', () => ({
   useAuthFormSection: jest.fn(),
 }));
+
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { useAuthFormSection } from '@features/auth/model';
 import { AuthFormSection } from '@features/auth/ui';
