@@ -1,15 +1,15 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { render, screen } from '@testing-library/react';
 
+import { RedirectSection } from '@entities/shared';
+
 jest.mock('@tanstack/react-router', () => ({
-  Link: ({ to, children }: { to: string; children: React.ReactNode }) => (
+  Link: ({ to, children }: { to: string; children: ReactNode }) => (
     <a href={to} data-testid="redirect-link">
       {children}
     </a>
   ),
 }));
-
-import RedirectSection from '../RedirectSection';
 
 describe('RedirectSection', () => {
   const defaultProps = {

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { act, renderHook, waitFor } from '@testing-library/react';
 
 import { AuthProvider, useAuth, type User } from '@features/auth/model';
