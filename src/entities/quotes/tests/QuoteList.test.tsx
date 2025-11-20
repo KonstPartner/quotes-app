@@ -1,3 +1,12 @@
+jest.mock('@features/auth/model', () => ({
+  useAuth: () => ({
+    user: { id: 1, username: 'test' },
+    login: jest.fn(),
+    logout: jest.fn(),
+    isAuthenticated: true,
+  }),
+}));
+
 import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 

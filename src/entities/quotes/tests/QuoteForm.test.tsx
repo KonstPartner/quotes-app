@@ -97,7 +97,7 @@ describe('CreateForm', () => {
       />
     );
 
-    expect(screen.getByText(/failed to save quote/i)).toBeInTheDocument();
+    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument();
   });
 
   it('passes form values to onSubmit', async () => {

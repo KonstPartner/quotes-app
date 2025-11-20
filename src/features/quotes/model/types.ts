@@ -4,6 +4,13 @@ export type Quote = {
   author: string;
 };
 
+export type LocalQuote = {
+  id: number;
+  quote: string;
+  author: string;
+  userId: number;
+};
+
 export type QuotesResponse = {
   quotes: Quote[];
   total: number;
@@ -12,17 +19,19 @@ export type QuotesResponse = {
 };
 
 export type LocalQuotesResponse = {
-  data: Quote[];
+  data: LocalQuote[];
   total: number;
 };
 
 export type CreateQuoteDto = {
   author: string;
   quote: string;
+  userId: number;
 };
 
 export type UpdateQuoteDto = {
   id: number;
   author: string;
   quote: string;
+  userId: number;
 };

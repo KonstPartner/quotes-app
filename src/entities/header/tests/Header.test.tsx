@@ -1,9 +1,3 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
-import { Header } from '@entities/header';
-import type { ThemeType } from '@features/theme/model';
-
 jest.mock('@tanstack/react-router', () => {
   const actual = jest.requireActual('@tanstack/react-router');
   return {
@@ -16,6 +10,12 @@ jest.mock('@features/auth/ui/AuthButton', () => ({
   __esModule: true,
   default: () => <button>Auth</button>,
 }));
+
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import { Header } from '@entities/header';
+import type { ThemeType } from '@features/theme/model';
 
 describe('Header', () => {
   const renderHeader = (theme: ThemeType = 'light') => {

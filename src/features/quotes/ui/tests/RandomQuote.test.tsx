@@ -1,12 +1,3 @@
-import { UseQueryResult } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
-import { useRandomQuote } from '@features/quotes/api';
-import { Quote } from '@features/quotes/model';
-
-import RandomQuote from '../RandomQuote';
-
 jest.mock('@features/quotes/api', () => ({
   useRandomQuote: jest.fn(),
 }));
@@ -16,6 +7,15 @@ jest.mock('@entities/quotes', () => ({
     <div data-testid="quote-card">{quoteData.quote}</div>
   ),
 }));
+
+import { UseQueryResult } from '@tanstack/react-query';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import { useRandomQuote } from '@features/quotes/api';
+import { Quote } from '@features/quotes/model';
+
+import RandomQuote from '../RandomQuote';
 
 const mockedUseRandomQuote = useRandomQuote as jest.Mock<
   Partial<UseQueryResult<Quote, Error>>,

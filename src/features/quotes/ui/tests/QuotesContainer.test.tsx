@@ -1,11 +1,19 @@
+jest.mock('@features/quotes/api');
+jest.mock('@hooks/useScrollIntoView');
+jest.mock('@features/auth/model', () => ({
+  useAuth: () => ({
+    user: { id: 1, username: 'test' },
+    login: jest.fn(),
+    logout: jest.fn(),
+    isAuthenticated: true,
+  }),
+}));
+
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { useSuspenseQuotes } from '@features/quotes/api';
 import { QuotesContainer } from '@features/quotes/ui';
 import useScrollIntoView from '@hooks/useScrollIntoView';
-
-jest.mock('@features/quotes/api');
-jest.mock('@hooks/useScrollIntoView');
 
 const mockedUseSuspenseQuotesPage = useSuspenseQuotes as jest.MockedFunction<
   typeof useSuspenseQuotes

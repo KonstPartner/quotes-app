@@ -44,7 +44,7 @@ const QuoteForm = ({
 
       {error && (
         <p className="text-destructive text-sm" role="alert">
-          Failed to save quote. Please try again.
+          {error.message}
         </p>
       )}
 

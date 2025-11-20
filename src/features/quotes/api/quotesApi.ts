@@ -10,6 +10,7 @@ import {
 } from '@features/quotes/api';
 import type {
   CreateQuoteDto,
+  LocalQuote,
   LocalQuotesResponse,
   Quote,
   QuotesResponse,
@@ -55,13 +56,13 @@ export const localQuotesApi = {
     }),
 
   createLocalQuote: (payload: CreateQuoteDto) =>
-    localApi<Quote>(API_QUOTES_PATH, {
+    localApi<LocalQuote>(API_QUOTES_PATH, {
       method: 'POST',
       json: payload,
     }),
 
   updateLocalQuote: (payload: UpdateQuoteDto) =>
-    localApi<Quote>(`${API_QUOTES_PATH}/${payload.id}`, {
+    localApi<LocalQuote>(`${API_QUOTES_PATH}/${payload.id}`, {
       method: 'PATCH',
       json: {
         quote: payload.quote,
@@ -69,11 +70,11 @@ export const localQuotesApi = {
       },
     }),
 
-  getLocalQuoteByIdOptions: (id: Quote['id'], queryClient: QueryClient) =>
+  getLocalQuoteByIdOptions: (id: LocalQuote['id'], queryClient: QueryClient) =>
     queryOptions({
       queryKey: [localQuotesApi.baseKey, 'byId', id],
       queryFn: ({ signal }) =>
-        localApi<Quote>(getLocalQuoteEndpoint(id), { signal }),
+        localApi<LocalQuote>(getLocalQuoteEndpoint(id), { signal }),
       initialData: () => {
         const pages = queryClient.getQueriesData<LocalQuotesResponse>({
           queryKey: [localQuotesApi.baseKey, 'page'],
