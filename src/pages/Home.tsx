@@ -1,5 +1,5 @@
-import { RandomQuote } from '@entities/quotes';
 import { RedirectSection } from '@entities/shared';
+import { RandomQuote } from '@features/quotes/ui';
 
 const Home = () => {
   return (
