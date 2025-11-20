@@ -1,14 +1,23 @@
+import { useState } from 'react';
 import { useRouter } from '@tanstack/react-router';
 
 import QuoteForm from '@entities/quotes/QuoteForm';
+import { useAuth } from '@features/auth/model';
 import { useCreateLocalQuote } from '@features/quotes/api';
 
 const CreateQuoteForm = () => {
+  const { user } = useAuth();
   const router = useRouter();
   const { mutateAsync, isPending, error } = useCreateLocalQuote();
+  const [authError, setAuthError] = useState<string | null>(null);
 
   const handleSubmit = async (values: { quote: string; author: string }) => {
-    await mutateAsync(values);
+    if (!user) {
+      setAuthError('You must be logged in to create a quote');
+      return;
+    }
+
+    await mutateAsync({ ...values, userId: user.id });
     router.navigate({ to: '/user-quotes' });
   };
 
@@ -19,7 +28,7 @@ const CreateQuoteForm = () => {
       initialAuthor=""
       submitLabel="Save quote"
       isPending={isPending}
-      error={error as Error | null}
+      error={authError ? new Error(authError) : error}
       onSubmit={handleSubmit}
     />
   );

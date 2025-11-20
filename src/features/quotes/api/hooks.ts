@@ -5,6 +5,7 @@ import {
   useSuspenseQuery,
 } from '@tanstack/react-query';
 
+import { useAuth } from '@features/auth/model';
 import { localQuotesApi, QUOTES_LIMIT, quotesApi } from '@features/quotes/api';
 import {
   CreateQuoteDto,
@@ -59,10 +60,22 @@ export const useCreateLocalQuote = () => {
 
 export const useUpdateLocalQuote = () => {
   const queryClient = useQueryClient();
+  const { user } = useAuth();
 
   return useMutation({
-    mutationFn: (payload: UpdateQuoteDto) =>
-      localQuotesApi.updateLocalQuote(payload),
+    mutationFn: (payload: UpdateQuoteDto) => {
+      if (!user) {
+        throw new Error('You must be logged in to update a quote');
+      }
+
+      if (user.id !== payload.userId) {
+        throw new Error(
+          "Permission denied. You can't update quote you don't own"
+        );
+      }
+
+      return localQuotesApi.updateLocalQuote(payload);
+    },
     onSuccess: (updatedQuote: Quote) => {
       queryClient.setQueryData(
         [localQuotesApi.baseKey, 'byId', updatedQuote.id],

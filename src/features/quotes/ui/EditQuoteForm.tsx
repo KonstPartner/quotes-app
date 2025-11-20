@@ -15,6 +15,7 @@ const EditQuoteForm = () => {
       id: quoteId,
       quote: values.quote,
       author: values.author,
+      userId: quote.userId,
     });
 
     router.navigate({ to: '/user-quotes' });
