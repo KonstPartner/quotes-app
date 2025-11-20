@@ -90,4 +90,9 @@ export const localQuotesApi = {
         return undefined;
       },
     }),
+
+  deleteLocalQuote: (id: LocalQuote['id']) =>
+    localApi<void>(getLocalQuoteEndpoint(id), {
+      method: 'DELETE',
+    }),
 };

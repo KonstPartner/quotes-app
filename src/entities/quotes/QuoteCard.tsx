@@ -3,6 +3,7 @@ import { QuoteIcon } from 'lucide-react';
 import { EditQuoteIcon } from '@entities/quotes';
 import { useAuth } from '@features/auth/model';
 import { LocalQuote } from '@features/quotes/model';
+import { DeleteQuoteDialog } from '@features/quotes/ui';
 
 const QuoteCard = ({
   quoteData,
@@ -32,7 +33,12 @@ const QuoteCard = ({
 
       <footer className="text-muted-foreground mt-2 flex items-center justify-between text-xs">
         <span>— {author}</span>
-        {isLocal && isOwn && <EditQuoteIcon id={id} />}
+        {isLocal && isOwn && (
+          <div>
+            <EditQuoteIcon id={id} />
+            <DeleteQuoteDialog quoteId={id} userId={userId} />
+          </div>
+        )}
       </footer>
 
       <div
