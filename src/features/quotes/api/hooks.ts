@@ -9,8 +9,8 @@ import { useAuth } from '@features/auth/model';
 import { localQuotesApi, QUOTES_LIMIT, quotesApi } from '@features/quotes/api';
 import {
   CreateQuoteDto,
+  LocalQuote,
   LocalQuotesResponse,
-  Quote,
   UpdateQuoteDto,
 } from '@features/quotes/model';
 
@@ -76,7 +76,7 @@ export const useUpdateLocalQuote = () => {
 
       return localQuotesApi.updateLocalQuote(payload);
     },
-    onSuccess: (updatedQuote: Quote) => {
+    onSuccess: (updatedQuote: LocalQuote) => {
       queryClient.setQueryData(
         [localQuotesApi.baseKey, 'byId', updatedQuote.id],
         updatedQuote
@@ -110,4 +110,36 @@ export const useLocalQuoteById = (id: number) => {
   return useSuspenseQuery(
     localQuotesApi.getLocalQuoteByIdOptions(id, queryClient)
   );
+};
+
+export const useDeleteLocalQuote = () => {
+  const queryClient = useQueryClient();
+  const { user } = useAuth();
+
+  return useMutation({
+    mutationFn: async (payload: {
+      id: LocalQuote['id'];
+      userId: LocalQuote['userId'];
+    }) => {
+      if (!user) {
+        throw new Error('You must be logged in to delete a quote');
+      }
+
+      if (payload.userId !== user.id) {
+        throw new Error('You can only delete your own quotes');
+      }
+
+      return localQuotesApi.deleteLocalQuote(payload.id);
+    },
+
+    onSuccess: (_, id) => {
+      queryClient.invalidateQueries({
+        queryKey: [localQuotesApi.baseKey],
+      });
+
+      queryClient.removeQueries({
+        queryKey: [localQuotesApi.baseKey, 'byId', id],
+      });
+    },
+  });
 };
