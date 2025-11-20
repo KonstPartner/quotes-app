@@ -1,6 +1,10 @@
+import { RedirectSection } from '@entities/shared';
+import { useAuth } from '@features/auth/model';
 import { CreateQuoteForm } from '@features/quotes/ui';
 
 const CreateQuote = () => {
+  const { user } = useAuth();
+
   return (
     <div className="container space-y-8 py-8">
       <section className="space-y-2 text-center">
@@ -15,7 +19,17 @@ const CreateQuote = () => {
         </p>
       </section>
 
-      <CreateQuoteForm />
+      {!user && (
+        <RedirectSection
+          title="Sign in"
+          description="You have to sign in before creating a quote."
+          button="Sign in"
+          to="/login"
+          className="mx-auto sm:w-[90%] md:w-[80%] lg:w-[60%]"
+        />
+      )}
+
+      {user && <CreateQuoteForm />}
     </div>
   );
 };
