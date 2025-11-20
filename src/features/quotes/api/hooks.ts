@@ -1,5 +1,6 @@
 import {
   useMutation,
+  useQuery,
   useQueryClient,
   useSuspenseQuery,
 } from '@tanstack/react-query';
@@ -23,6 +24,10 @@ export const useSuspenseQuotes = (page: number) => {
     totalPages,
     refetch,
   };
+};
+
+export const useRandomQuote = () => {
+  return useQuery(quotesApi.getRandomQuoteOptions());
 };
 
 export const useSuspenseLocalQuotes = (page: number) => {

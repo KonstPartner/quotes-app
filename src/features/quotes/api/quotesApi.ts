@@ -2,6 +2,7 @@ import { QueryClient, queryOptions } from '@tanstack/react-query';
 
 import {
   API_QUOTES_PATH,
+  API_RANDOM_QUOTES_PATH,
   getLocalQuoteEndpoint,
   getLocalQuotesEndpointWithQuery,
   getQuotesEndpointWithQuery,
@@ -31,6 +32,13 @@ export const quotesApi = {
         ),
     });
   },
+
+  getRandomQuoteOptions: () =>
+    queryOptions({
+      queryKey: [quotesApi.baseKey, 'random'],
+      queryFn: ({ signal }) =>
+        dummyApi<Quote>(API_RANDOM_QUOTES_PATH, { signal }),
+    }),
 };
 
 export const localQuotesApi = {
