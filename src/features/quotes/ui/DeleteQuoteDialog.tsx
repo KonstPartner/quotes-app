@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import { Trash2 } from 'lucide-react';
 
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -22,14 +22,22 @@ const DeleteQuoteDialog = ({
   quoteId: LocalQuote['id'];
   userId: LocalQuote['userId'];
 }) => {
-  const { mutate, isPending } = useDeleteLocalQuote();
+  const [open, setOpen] = useState(false);
+  const { mutate, isPending, error } = useDeleteLocalQuote();
 
   const handleConfirm = () => {
-    mutate({ id: quoteId, userId });
+    mutate(
+      { id: quoteId, userId },
+      {
+        onSuccess: () => {
+          setOpen(false);
+        },
+      }
+    );
   };
 
   return (
-    <AlertDialog>
+    <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
         <button
           type="button"
@@ -44,9 +52,18 @@ const DeleteQuoteDialog = ({
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Delete this quote?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This quote will be permanently
-            removed.
+          <AlertDialogDescription asChild>
+            <div className="text-muted-foreground text-sm">
+              <p>
+                This action cannot be undone. This quote will be permanently
+                removed.
+              </p>
+              {error && (
+                <p className="text-destructive mt-2" role="alert">
+                  {error.message}
+                </p>
+              )}
+            </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -55,16 +72,15 @@ const DeleteQuoteDialog = ({
               Cancel
             </Button>
           </AlertDialogCancel>
-          <AlertDialogAction asChild>
-            <Button
-              type="button"
-              variant="destructive"
-              onClick={handleConfirm}
-              disabled={isPending}
-            >
-              {isPending ? 'Deleting…' : 'Delete'}
-            </Button>
-          </AlertDialogAction>
+
+          <Button
+            type="button"
+            variant="destructive"
+            onClick={handleConfirm}
+            disabled={isPending}
+          >
+            {isPending ? 'Deleting…' : 'Delete'}
+          </Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
