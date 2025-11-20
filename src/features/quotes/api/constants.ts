@@ -2,6 +2,8 @@ import { Quote } from '@features/quotes/model';
 
 export const API_QUOTES_PATH = '/quotes';
 
+export const API_RANDOM_QUOTES_PATH = '/quotes/random';
+
 export const getQuotesEndpointWithQuery = (limit: number, skip: number) =>
   API_QUOTES_PATH + `?limit=${limit}&skip=${skip}`;
 
