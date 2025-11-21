@@ -1,23 +1,22 @@
-import { RedirectSection } from '@entities/shared';
+import { ArrowBigDownDash } from 'lucide-react';
+
+import { RedirectSection, WelcomeSection } from '@entities/shared';
 import { RandomQuote } from '@features/quotes/ui';
 
 const Home = () => {
   return (
-    <div className="container space-y-10 sm:w-[90%] md:w-[80%] lg:w-[60%]">
-      <section className="space-y-3 text-center">
-        <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase">
-          Welcome
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-          Discover quotes that match your mood
-        </h1>
-        <p className="text-muted-foreground text-sm sm:text-base">
-          Get a random quote of the day, or explore a curated collection of
-          quotes from writers, thinkers and leaders.
-        </p>
-      </section>
+    <div className="container flex flex-col items-center space-y-[10%] py-[10%] sm:w-[90%] md:w-[80%] lg:w-[60%]">
+      <WelcomeSection
+        subtitle="Welcome"
+        title="Discover quotes that match your mood"
+        description="Get a random quote of the day, or explore a curated collection of quotes from writers, thinkers and leaders."
+      />
+
+      <ArrowBigDownDash className="h-50 w-50" />
 
       <RandomQuote />
+
+      <ArrowBigDownDash className="h-50 w-50" />
 
       <RedirectSection
         title="Explore more quotes"
