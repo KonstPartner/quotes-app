@@ -6,8 +6,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { useDeleteLocalQuote } from '@features/quotes/api';
-
-import DeleteQuoteDialog from '../DeleteQuoteDialog';
+import { DeleteQuoteDialog } from '@features/quotes/ui';
 
 const mockedUseDeleteLocalQuote = useDeleteLocalQuote as jest.MockedFunction<
   typeof useDeleteLocalQuote

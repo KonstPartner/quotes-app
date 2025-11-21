@@ -14,8 +14,7 @@ import userEvent from '@testing-library/user-event';
 
 import { useRandomQuote } from '@features/quotes/api';
 import { Quote } from '@features/quotes/model';
-
-import RandomQuote from '../RandomQuote';
+import { RandomQuote } from '@features/quotes/ui';
 
 const mockedUseRandomQuote = useRandomQuote as jest.Mock<
   Partial<UseQueryResult<Quote, Error>>,

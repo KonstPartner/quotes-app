@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { QuotesSection } from '@entities/quotes';
 import { useSuspenseQuotes } from '@features/quotes/api';
@@ -10,6 +10,10 @@ const QuotesContainer = () => {
     (nextPage) => setPage(nextPage)
   );
   const { quotes, totalPages } = useSuspenseQuotes(page);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, []);
 
   return (
     <QuotesSection

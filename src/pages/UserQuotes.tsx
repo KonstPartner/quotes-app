@@ -1,12 +1,17 @@
-import { WelcomeSection } from '@entities/quotes';
-import { RedirectSection } from '@entities/shared';
+import { RedirectSection, WelcomeSection } from '@entities/shared';
 import { UserQuotesContainer } from '@features/quotes/ui';
 import { Loader } from '@features/shared';
 
 const UserQuotes = () => {
   return (
     <div className="container space-y-10">
-      <WelcomeSection />
+      <WelcomeSection
+        subtitle="Daily inspiration"
+        title="Thoughtful quotes for your day"
+        description="Explore a curated collection of quotes from writers, thinkers and
+        leaders."
+        className="mx-auto sm:w-[90%] md:w-[80%] lg:w-[60%]"
+      />
 
       <RedirectSection
         title="Create your own quote"

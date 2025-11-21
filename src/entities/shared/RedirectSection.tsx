@@ -16,7 +16,7 @@ const RedirectSection = (
     <section
       className={twMerge(
         clsx(
-          'border-border bg-card/80 flex flex-col items-center justify-between gap-4 rounded-xl border p-5 shadow-sm sm:flex-row sm:text-left',
+          'border-border bg-card/80 flex w-full flex-col items-center justify-between gap-4 rounded-xl border p-5 shadow-sm sm:flex-row sm:text-left',
           className
         )
       )}
