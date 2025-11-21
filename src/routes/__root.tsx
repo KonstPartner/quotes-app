@@ -3,7 +3,7 @@ import { createRootRoute, Outlet } from '@tanstack/react-router';
 
 import NotFound from '@pages/NotFound';
 import { Header } from '@entities/header';
-import { SideNav } from '@entities/layout';
+import { Footer, SideNav } from '@entities/layout';
 import { useTheme } from '@features/theme/model';
 
 const RootLayout = () => {
@@ -29,7 +29,7 @@ const RootLayout = () => {
         <Outlet />
       </main>
 
-      <footer></footer>
+      <Footer />
     </div>
   );
 };

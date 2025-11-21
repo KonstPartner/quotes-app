@@ -1,4 +1,4 @@
-import { apiInstance } from '@utils/apiInstance';
+import { apiInstance } from '@utils';
 
 export const API_BASE_URL = 'https://dummyjson.com';
 export const LOCAL_API_BASE_URL = 'http://localhost:3000';
