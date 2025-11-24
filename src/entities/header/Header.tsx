@@ -18,10 +18,10 @@ const Header = ({
 }) => {
   return (
     <header
-      className="bg-background sticky top-0 z-40 flex h-16 justify-center border-b"
+      className="bg-background/60 sticky top-0 z-40 flex h-16 justify-center border-b backdrop-blur-md"
       role="banner"
     >
-      <div className="container flex items-center justify-between gap-4">
+      <div className="flex w-full items-center justify-between gap-4 p-5">
         <Logo />
 
         <div className="hidden items-center gap-5 lg:flex lg:gap-8">

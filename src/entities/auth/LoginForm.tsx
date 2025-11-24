@@ -46,7 +46,7 @@ const LoginForm = ({
         />
       </div>
 
-      <Button type="submit" className="mt-2 w-full">
+      <Button type="submit" className="mt-2 w-full cursor-pointer">
         {isPending ? 'Signing in…' : 'Sign in'}
       </Button>
 
@@ -55,7 +55,7 @@ const LoginForm = ({
         <button
           type="button"
           onClick={onSwitchToRegister}
-          className="text-primary underline-offset-4 hover:underline"
+          className="text-primary cursor-pointer underline-offset-4 hover:underline"
         >
           Create one
         </button>

@@ -19,7 +19,7 @@ const PaginationBar = ({
       {currentPage > 1 && (
         <button
           type="button"
-          className="border-border bg-card hover:bg-muted inline-flex h-8 items-center rounded-md border px-3 text-xs"
+          className="border-border bg-card hover:bg-muted inline-flex h-8 cursor-pointer items-center rounded-md border px-3 text-xs"
           onClick={() => onPageChange(currentPage - 1)}
         >
           Prev
@@ -40,7 +40,7 @@ const PaginationBar = ({
       {currentPage < totalPages && (
         <button
           type="button"
-          className="border-border bg-card hover:bg-muted inline-flex h-8 items-center rounded-md border px-3 text-xs"
+          className="border-border bg-card hover:bg-muted inline-flex h-8 cursor-pointer items-center rounded-md border px-3 text-xs"
           onClick={() => onPageChange(currentPage + 1)}
         >
           Next

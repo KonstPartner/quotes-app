@@ -31,11 +31,9 @@
       "@constants": ["./src/constants/index.ts"],
       "@utils/*": ["./src/utils/*"],
       "@utils": ["./src/utils/index.ts"],
-      "@shared/*": ["./src/shared/*"],
-      "@shared": ["./src/shared/index.ts"],
       "@hooks/*": ["./src/hooks/*"],
       "@hooks": ["./src/hooks/index.ts"]
     }
   },
-  "include": ["src", "global.d.ts", "src/__tests__"]
+  "include": ["src", "global.d.ts"]
 }

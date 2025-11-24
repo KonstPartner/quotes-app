@@ -48,7 +48,7 @@ const useAuthFormSection = () => {
     });
 
     login(user);
-    router.navigate({ to: '/' });
+    router.history.back();
   };
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {

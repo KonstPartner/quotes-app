@@ -27,7 +27,7 @@ const RedirectSection = (
       </div>
 
       <Link to={to}>
-        <Button type="button">
+        <Button className="cursor-pointer" type="button">
           {button}
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>

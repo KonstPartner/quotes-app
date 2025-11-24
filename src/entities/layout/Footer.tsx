@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-background border-t">
+    <footer className="bg-background/60 border-t backdrop-blur-md">
       <div className="p-5">
         <p className="text-muted-foreground">
           © {new Date().getFullYear()} Quotes App. All rights reserved.

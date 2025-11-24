@@ -35,7 +35,7 @@ const ChatOperations = ({
         type="submit"
         size="icon"
         disabled={isDisabled || !value.trim() || isWaitingResponse}
-        className="shrink-0"
+        className="shrink-0 cursor-pointer"
       >
         <Send className="h-4 w-4" aria-hidden="true" />
         <span className="sr-only">Send message</span>

@@ -51,7 +51,7 @@ const ChatHeader = ({
           size="icon"
           onClick={clearMessages}
           disabled={messages.length === 0}
-          className="h-7 w-7"
+          className="h-7 w-7 cursor-pointer"
           title="Clear messages"
         >
           <XCircle className="h-3.5 w-3.5" aria-hidden="true" />

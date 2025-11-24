@@ -18,12 +18,12 @@ const ChatSection = () => {
   } = useChat();
 
   return (
-    <section className="bg-card relative mx-auto flex h-[480px] max-w-2xl flex-col rounded-2xl border shadow-sm">
+    <section className="bg-card relative mx-auto flex h-[480px] w-full max-w-2xl flex-col rounded-2xl border shadow-sm">
       {status !== 'open' && (
         <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-black/40">
           <Button
             size="lg"
-            className="px-6 py-3 text-lg"
+            className="cursor-pointer px-6 py-3 text-lg"
             onClick={connect}
             disabled={status === 'connecting'}
           >

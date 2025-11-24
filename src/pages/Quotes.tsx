@@ -4,7 +4,7 @@ import { Loader } from '@features/shared';
 
 const Quotes = () => {
   return (
-    <div className="container space-y-10">
+    <div className="container">
       <WelcomeSection
         subtitle="Daily inspiration"
         title="Thoughtful quotes for your day"

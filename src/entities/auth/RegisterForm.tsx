@@ -56,7 +56,7 @@ const RegisterForm = ({
         />
       </div>
 
-      <Button type="submit" className="mt-2 w-full">
+      <Button type="submit" className="mt-2 w-full cursor-pointer">
         {isPending ? 'Creating…' : 'Sign up'}
       </Button>
 
@@ -65,7 +65,7 @@ const RegisterForm = ({
         <button
           type="button"
           onClick={onSwitchToLogin}
-          className="text-primary underline-offset-4 hover:underline"
+          className="text-primary cursor-pointer underline-offset-4 hover:underline"
         >
           Sign in
         </button>

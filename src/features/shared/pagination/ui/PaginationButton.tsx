@@ -14,7 +14,7 @@ const PaginationButton = ({
       type="button"
       onClick={() => onClick(page)}
       disabled={isCurrent}
-      className={`inline-flex h-8 min-w-8 items-center justify-center rounded-md border px-2 text-xs font-medium transition ${
+      className={`inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition ${
         isCurrent
           ? 'border-primary bg-primary text-primary-foreground'
           : 'border-border bg-card text-foreground hover:bg-muted'
