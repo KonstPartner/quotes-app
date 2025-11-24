@@ -24,13 +24,13 @@ const Header = ({
       <div className="container flex items-center justify-between gap-4">
         <Logo />
 
-        <div className="hidden items-center gap-5 md:flex lg:gap-8">
+        <div className="hidden items-center gap-5 lg:flex lg:gap-8">
           <NavBar />
           <ToggleTheme theme={theme} setTheme={setTheme} />
           <AuthButton />
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>

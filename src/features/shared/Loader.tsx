@@ -2,6 +2,8 @@ import { ReactNode, Suspense } from 'react';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { ErrorSection, Loading } from '@entities/shared';
+
 const Loader = ({ children }: { children: ReactNode }) => {
   return (
     <QueryErrorResetBoundary>
@@ -9,28 +11,10 @@ const Loader = ({ children }: { children: ReactNode }) => {
         <ErrorBoundary
           onReset={reset}
           fallbackRender={({ resetErrorBoundary }) => (
-            <div className="flex flex-col items-center justify-center gap-3">
-              <p className="text-destructive">Something went wrong.</p>
-              <button
-                onClick={() => resetErrorBoundary()}
-                className="bg-primary text-primary-foreground rounded-md px-4 py-2"
-              >
-                Try again
-              </button>
-            </div>
+            <ErrorSection callback={resetErrorBoundary} />
           )}
         >
-          <Suspense
-            fallback={
-              <div className="flex items-center justify-center">
-                <p className="text-muted-foreground text-lg font-medium">
-                  Loading...
-                </p>
-              </div>
-            }
-          >
-            {children}
-          </Suspense>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </ErrorBoundary>
       )}
     </QueryErrorResetBoundary>

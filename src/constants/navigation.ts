@@ -4,4 +4,5 @@ export const NAV_LINKS = [
   { to: '/user-quotes', label: 'User Quotes' },
   { to: '/user-quotes/create', label: 'Create' },
   { to: '/chat', label: 'Chat' },
+  { to: '/posts', label: 'Posts' },
 ];
