@@ -1,5 +1,5 @@
-import { usePagination } from '@features/shared/pagination/model';
-import { PaginationButton } from '@features/shared/pagination/ui';
+import { usePagination } from '@features/pagination/model';
+import { PaginationButton } from '@features/pagination/ui';
 
 const PaginationBar = ({
   metadata,

@@ -1,8 +1,8 @@
 import { RefObject } from 'react';
 
 import { QuotesList } from '@entities/quotes';
+import { PaginationBar } from '@features/pagination/ui';
 import { Quote } from '@features/quotes/model';
-import { PaginationBar } from '@features/shared/pagination/ui';
 
 const QuotesSection = ({
   listRef,

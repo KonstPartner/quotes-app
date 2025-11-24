@@ -1,6 +1,6 @@
 import { RedirectSection, WelcomeSection } from '@entities/shared';
 import { QuotesContainer } from '@features/quotes/ui';
-import { Loader } from '@features/shared';
+import { Loader } from '@features/shared/ui';
 
 const Quotes = () => {
   return (

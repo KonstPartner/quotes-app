@@ -1,8 +1,8 @@
 import { RefObject } from 'react';
 
 import { PostList } from '@entities/posts';
+import { PaginationBar } from '@features/pagination/ui';
 import { Post } from '@features/posts/model';
-import { PaginationBar } from '@features/shared/pagination/ui';
 
 const PostsSection = ({
   listRef,

@@ -2,11 +2,11 @@
 
 exports[`Header matches snapshot 1`] = `
 <header
-  class="bg-background sticky top-0 z-40 flex h-16 justify-center border-b"
+  class="bg-background/60 sticky top-0 z-40 flex h-16 justify-center border-b backdrop-blur-md"
   role="banner"
 >
   <div
-    class="container flex items-center justify-between gap-4"
+    class="flex w-full items-center justify-between gap-4 p-5"
   >
     <div
       class="hidden items-center gap-5 lg:flex lg:gap-8"
@@ -33,7 +33,7 @@ exports[`Header matches snapshot 1`] = `
       >
         <button
           aria-checked="true"
-          class="flex h-8 w-8 items-center justify-center rounded-full text-xs transition bg-primary text-primary-foreground"
+          class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-xs transition bg-primary text-primary-foreground"
           role="radio"
           title="Light theme"
           type="button"
@@ -84,7 +84,7 @@ exports[`Header matches snapshot 1`] = `
         </button>
         <button
           aria-checked="false"
-          class="flex h-8 w-8 items-center justify-center rounded-full text-xs transition text-muted-foreground hover:bg-muted"
+          class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-xs transition text-muted-foreground hover:bg-muted"
           role="radio"
           title="Dark theme"
           type="button"
@@ -109,7 +109,7 @@ exports[`Header matches snapshot 1`] = `
         </button>
         <button
           aria-checked="false"
-          class="flex h-8 w-8 items-center justify-center rounded-full text-xs transition text-muted-foreground hover:bg-muted"
+          class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-xs transition text-muted-foreground hover:bg-muted"
           role="radio"
           title="System theme"
           type="button"
@@ -161,7 +161,7 @@ exports[`Header matches snapshot 1`] = `
         aria-expanded="false"
         aria-haspopup="dialog"
         aria-label="Open navigation menu"
-        class="border-border text-foreground hover:bg-muted flex items-center justify-center rounded-md"
+        class="border-border text-foreground hover:bg-muted flex cursor-pointer items-center justify-center rounded-md"
         type="button"
       >
         <svg
