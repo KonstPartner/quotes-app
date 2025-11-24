@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as QuotesRouteImport } from './routes/quotes'
+import { Route as PostsRouteImport } from './routes/posts'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
@@ -20,6 +21,11 @@ import { Route as UserQuotesIdEditRouteImport } from './routes/user-quotes/$id/e
 const QuotesRoute = QuotesRouteImport.update({
   id: '/quotes',
   path: '/quotes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostsRoute = PostsRouteImport.update({
+  id: '/posts',
+  path: '/posts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
   '/login': typeof LoginRoute
+  '/posts': typeof PostsRoute
   '/quotes': typeof QuotesRoute
   '/user-quotes/create': typeof UserQuotesCreateRoute
   '/user-quotes': typeof UserQuotesIndexRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
   '/login': typeof LoginRoute
+  '/posts': typeof PostsRoute
   '/quotes': typeof QuotesRoute
   '/user-quotes/create': typeof UserQuotesCreateRoute
   '/user-quotes': typeof UserQuotesIndexRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
   '/login': typeof LoginRoute
+  '/posts': typeof PostsRoute
   '/quotes': typeof QuotesRoute
   '/user-quotes/create': typeof UserQuotesCreateRoute
   '/user-quotes/': typeof UserQuotesIndexRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/chat'
     | '/login'
+    | '/posts'
     | '/quotes'
     | '/user-quotes/create'
     | '/user-quotes'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/chat'
     | '/login'
+    | '/posts'
     | '/quotes'
     | '/user-quotes/create'
     | '/user-quotes'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/chat'
     | '/login'
+    | '/posts'
     | '/quotes'
     | '/user-quotes/create'
     | '/user-quotes/'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChatRoute: typeof ChatRoute
   LoginRoute: typeof LoginRoute
+  PostsRoute: typeof PostsRoute
   QuotesRoute: typeof QuotesRoute
   UserQuotesCreateRoute: typeof UserQuotesCreateRoute
   UserQuotesIndexRoute: typeof UserQuotesIndexRoute
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/quotes'
       fullPath: '/quotes'
       preLoaderRoute: typeof QuotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/posts': {
+      id: '/posts'
+      path: '/posts'
+      fullPath: '/posts'
+      preLoaderRoute: typeof PostsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChatRoute: ChatRoute,
   LoginRoute: LoginRoute,
+  PostsRoute: PostsRoute,
   QuotesRoute: QuotesRoute,
   UserQuotesCreateRoute: UserQuotesCreateRoute,
   UserQuotesIndexRoute: UserQuotesIndexRoute,

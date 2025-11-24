@@ -22,7 +22,7 @@ const SideNav = ({
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <div
         className={clsx(
           'fixed inset-0 z-50 transition-opacity duration-300',
