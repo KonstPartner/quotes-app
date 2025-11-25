@@ -19,7 +19,13 @@ const AuthButton = () => {
         >
           {user.username}
         </span>
-        <Button type="button" size="sm" variant="outline" onClick={logout}>
+        <Button
+          className="cursor-pointer"
+          type="button"
+          size="sm"
+          variant="outline"
+          onClick={logout}
+        >
           Logout
         </Button>
       </div>

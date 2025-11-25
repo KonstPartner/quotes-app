@@ -6,7 +6,7 @@ const CreateQuote = () => {
   const { user } = useAuth();
 
   return (
-    <div className="container space-y-8">
+    <div className="container">
       <WelcomeSection
         subtitle="User quote"
         title=" Share your favorite quote"

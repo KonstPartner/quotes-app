@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { PaginationBar } from '@features/shared/pagination/ui';
+import { PaginationBar } from '@features/pagination/ui';
 
 describe('PaginationBar snapshot', () => {
   it('renders correctly for middle page', () => {

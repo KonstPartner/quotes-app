@@ -47,7 +47,7 @@ const RandomQuote = () => {
           variant="outline"
           onClick={() => refetch()}
           disabled={isRefetching || isPending}
-          className="inline-flex items-center gap-2"
+          className="inline-flex cursor-pointer items-center gap-2"
         >
           <RefreshCw
             className={`h-4 w-4 ${isRefetching ? 'animate-spin' : ''}`}

@@ -3,7 +3,7 @@ import { ChatSection } from '@features/chat/ui';
 
 const Chat = () => {
   return (
-    <div className="container space-y-6">
+    <div className="container">
       <WelcomeSection
         subtitle="Inspiration chat"
         title="Talk with yourself"

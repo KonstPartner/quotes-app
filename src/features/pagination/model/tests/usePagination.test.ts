@@ -1,4 +1,4 @@
-import { usePagination } from '@features/shared/pagination/model';
+import { usePagination } from '@features/pagination/model';
 
 describe('usePagination', () => {
   it('returns empty array when totalPages <= 0', () => {

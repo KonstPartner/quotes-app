@@ -23,7 +23,7 @@ const ToggleTheme = ({ theme, setTheme }: ToggleThemeProps) => {
         onClick={() => setTheme('light')}
         role="radio"
         aria-checked={isLight}
-        className={`flex h-8 w-8 items-center justify-center rounded-full text-xs transition ${
+        className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-xs transition ${
           isLight
             ? 'bg-primary text-primary-foreground'
             : 'text-muted-foreground hover:bg-muted'
@@ -38,7 +38,7 @@ const ToggleTheme = ({ theme, setTheme }: ToggleThemeProps) => {
         onClick={() => setTheme('dark')}
         role="radio"
         aria-checked={isDark}
-        className={`flex h-8 w-8 items-center justify-center rounded-full text-xs transition ${
+        className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-xs transition ${
           isDark
             ? 'bg-primary text-primary-foreground'
             : 'text-muted-foreground hover:bg-muted'
@@ -53,7 +53,7 @@ const ToggleTheme = ({ theme, setTheme }: ToggleThemeProps) => {
         onClick={() => setTheme('system')}
         role="radio"
         aria-checked={isSystem}
-        className={`flex h-8 w-8 items-center justify-center rounded-full text-xs transition ${
+        className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full text-xs transition ${
           isSystem
             ? 'bg-primary text-primary-foreground'
             : 'text-muted-foreground hover:bg-muted'

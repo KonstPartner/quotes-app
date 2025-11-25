@@ -3,7 +3,7 @@ import { PostsContainer } from '@features/posts/ui';
 
 const Posts = () => {
   return (
-    <div className="container space-y-10">
+    <div className="container">
       <WelcomeSection
         subtitle="Community stories"
         title="Discover thoughts shared by others"

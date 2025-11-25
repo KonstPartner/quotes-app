@@ -3,7 +3,7 @@ import { EditQuoteForm } from '@features/quotes/ui';
 
 const EditQuote = () => {
   return (
-    <div className="container space-y-8">
+    <div className="container">
       <WelcomeSection
         subtitle="Edit quote"
         title="Update your local quote"

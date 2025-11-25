@@ -1,10 +1,10 @@
 import { RedirectSection, WelcomeSection } from '@entities/shared';
 import { UserQuotesContainer } from '@features/quotes/ui';
-import { Loader } from '@features/shared';
+import { Loader } from '@features/shared/ui';
 
 const UserQuotes = () => {
   return (
-    <div className="container space-y-10">
+    <div className="container">
       <WelcomeSection
         subtitle="Daily inspiration"
         title="Thoughtful quotes for your day"

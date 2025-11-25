@@ -1,23 +1,21 @@
-import { useState } from 'react';
+import { InputHTMLAttributes, useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 
 import { cn, Input } from '@shadcn';
+
+interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  name: string;
+  label: string;
+}
 
 const PasswordInput = ({
   id,
   name,
   label,
-  autoComplete,
-  required,
-  defaultValue,
-}: {
-  id: string;
-  name: string;
-  label: string;
-  autoComplete?: string;
-  required?: boolean;
-  defaultValue?: string;
-}) => {
+  className,
+  ...props
+}: PasswordInputProps) => {
   const [show, setShow] = useState(false);
 
   return (
@@ -31,16 +29,15 @@ const PasswordInput = ({
           id={id}
           name={name}
           type={show ? 'text' : 'password'}
-          required={required}
-          defaultValue={defaultValue}
-          autoComplete={autoComplete}
-          className={cn('pr-10')}
+          className={cn('pr-10', className)}
+          placeholder="Enter password"
+          {...props}
         />
 
         <button
           type="button"
           onClick={() => setShow((prev) => !prev)}
-          className="text-muted-foreground hover:text-foreground absolute inset-y-0 right-2 flex items-center"
+          className="text-muted-foreground hover:text-foreground absolute inset-y-0 right-2 flex cursor-pointer items-center"
           aria-label={show ? 'Hide password' : 'Show password'}
         >
           {show ? (

@@ -16,7 +16,7 @@ const Burger = ({
       aria-haspopup="dialog"
       aria-controls="mobile-nav"
       onClick={() => setIsOpen((prev) => !prev)}
-      className="border-border text-foreground hover:bg-muted flex items-center justify-center rounded-md"
+      className="border-border text-foreground hover:bg-muted flex cursor-pointer items-center justify-center rounded-md"
     >
       <Menu className="h-8 w-8" aria-hidden="true" />
     </button>

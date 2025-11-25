@@ -603,253 +603,553 @@
   ],
   "users": [
     {
-      "username": "undefined",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 1
-    },
-    {
       "username": "aurora",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 2
+      "gender": "other",
+      "source": "search",
+      "birthDay": "19",
+      "birthMonth": "7",
+      "birthYear": "1980",
+      "newsletter": false,
+      "id": 1
     },
     {
       "username": "nebula",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 3
+      "gender": "other",
+      "source": "ad",
+      "birthDay": "28",
+      "birthMonth": "10",
+      "birthYear": "2006",
+      "newsletter": false,
+      "id": 2
     },
     {
       "username": "orion",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 4
+      "gender": "female",
+      "source": "other",
+      "birthDay": "21",
+      "birthMonth": "4",
+      "birthYear": "1997",
+      "newsletter": true,
+      "id": 3
     },
     {
       "username": "phoenix",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 5
+      "gender": "other",
+      "source": "search",
+      "birthDay": "14",
+      "birthMonth": "6",
+      "birthYear": "2002",
+      "newsletter": true,
+      "id": 4
     },
     {
       "username": "nova",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 6
-    },
-    {
-      "username": "zenith",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 7
-    },
-    {
-      "username": "falcon",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 8
-    },
-    {
-      "username": "raven",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 9
-    },
-    {
-      "username": "ember",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 10
-    },
-    {
-      "username": "solstice",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 11
-    },
-    {
-      "username": "atlas",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 12
+      "gender": "female",
+      "source": "friends",
+      "birthDay": "15",
+      "birthMonth": "10",
+      "birthYear": "2004",
+      "newsletter": true,
+      "id": 5
     },
     {
       "username": "lyra",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "friends",
+      "birthDay": "24",
+      "birthMonth": "8",
+      "birthYear": "1989",
+      "newsletter": false,
+      "id": 6
+    },
+    {
+      "username": "astro",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "friends",
+      "birthDay": "26",
+      "birthMonth": "4",
+      "birthYear": "2002",
+      "newsletter": true,
+      "id": 7
+    },
+    {
+      "username": "xeno",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "ad",
+      "birthDay": "5",
+      "birthMonth": "12",
+      "birthYear": "2006",
+      "newsletter": true,
+      "id": 8
+    },
+    {
+      "username": "vanta",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "social",
+      "birthDay": "4",
+      "birthMonth": "2",
+      "birthYear": "1985",
+      "newsletter": true,
+      "id": 9
+    },
+    {
+      "username": "helio",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "ad",
+      "birthDay": "15",
+      "birthMonth": "10",
+      "birthYear": "2009",
+      "newsletter": false,
+      "id": 10
+    },
+    {
+      "username": "zara",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "search",
+      "birthDay": "8",
+      "birthMonth": "5",
+      "birthYear": "2005",
+      "newsletter": true,
+      "id": 11
+    },
+    {
+      "username": "kaito",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "search",
+      "birthDay": "8",
+      "birthMonth": "5",
+      "birthYear": "1991",
+      "newsletter": true,
+      "id": 12
+    },
+    {
+      "username": "mira",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "ad",
+      "birthDay": "22",
+      "birthMonth": "12",
+      "birthYear": "1996",
+      "newsletter": true,
       "id": 13
     },
     {
       "username": "vega",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "other",
+      "birthDay": "14",
+      "birthMonth": "1",
+      "birthYear": "1997",
+      "newsletter": true,
       "id": 14
     },
     {
-      "username": "drift",
+      "username": "altair",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "other",
+      "birthDay": "24",
+      "birthMonth": "4",
+      "birthYear": "2000",
+      "newsletter": true,
       "id": 15
     },
     {
-      "username": "pixel",
+      "username": "lumi",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "ad",
+      "birthDay": "20",
+      "birthMonth": "8",
+      "birthYear": "1987",
+      "newsletter": true,
       "id": 16
     },
     {
-      "username": "lumen",
+      "username": "riven",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "search",
+      "birthDay": "23",
+      "birthMonth": "1",
+      "birthYear": "2001",
+      "newsletter": false,
       "id": 17
     },
     {
-      "username": "echo",
+      "username": "nox",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "ad",
+      "birthDay": "28",
+      "birthMonth": "2",
+      "birthYear": "2006",
+      "newsletter": true,
       "id": 18
     },
     {
-      "username": "cipher",
+      "username": "solis",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "other",
+      "birthDay": "18",
+      "birthMonth": "6",
+      "birthYear": "1992",
+      "newsletter": true,
       "id": 19
     },
     {
-      "username": "vector",
+      "username": "vex",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "ad",
+      "birthDay": "7",
+      "birthMonth": "11",
+      "birthYear": "2008",
+      "newsletter": false,
       "id": 20
     },
     {
-      "username": "quartz",
+      "username": "kira",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "other",
+      "birthDay": "8",
+      "birthMonth": "2",
+      "birthYear": "1984",
+      "newsletter": true,
       "id": 21
     },
     {
-      "username": "emberlyn",
+      "username": "zeno",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "search",
+      "birthDay": "20",
+      "birthMonth": "12",
+      "birthYear": "1981",
+      "newsletter": false,
       "id": 22
     },
     {
-      "username": "storm",
+      "username": "noir",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "ad",
+      "birthDay": "24",
+      "birthMonth": "3",
+      "birthYear": "1992",
+      "newsletter": true,
       "id": 23
-    },
-    {
-      "username": "cascade",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 24
-    },
-    {
-      "username": "harbor",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 25
-    },
-    {
-      "username": "kairo",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 26
-    },
-    {
-      "username": "novafox",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 27
-    },
-    {
-      "username": "skylark",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 28
-    },
-    {
-      "username": "moonrise",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 29
-    },
-    {
-      "username": "haru",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 30
-    },
-    {
-      "username": "sakura",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 31
-    },
-    {
-      "username": "ashwood",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 32
-    },
-    {
-      "username": "foxglove",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 33
-    },
-    {
-      "username": "nightingale",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 34
-    },
-    {
-      "username": "mist",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 35
-    },
-    {
-      "username": "glacier",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 36
-    },
-    {
-      "username": "cobalt",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 37
-    },
-    {
-      "username": "onyx",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 38
-    },
-    {
-      "username": "silverleaf",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 39
-    },
-    {
-      "username": "willow",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 40
-    },
-    {
-      "username": "marin",
-      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 41
     },
     {
       "username": "astra",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 42
+      "gender": "female",
+      "source": "search",
+      "birthDay": "7",
+      "birthMonth": "4",
+      "birthYear": "1987",
+      "newsletter": false,
+      "id": 24
     },
     {
-      "username": "cosmo",
+      "username": "cairo",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-      "id": 43
+      "gender": "female",
+      "source": "friends",
+      "birthDay": "4",
+      "birthMonth": "11",
+      "birthYear": "1991",
+      "newsletter": true,
+      "id": 25
+    },
+    {
+      "username": "drift",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "search",
+      "birthDay": "21",
+      "birthMonth": "11",
+      "birthYear": "2007",
+      "newsletter": false,
+      "id": 26
     },
     {
       "username": "flare",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "ad",
+      "birthDay": "24",
+      "birthMonth": "2",
+      "birthYear": "1988",
+      "newsletter": true,
+      "id": 27
+    },
+    {
+      "username": "gyra",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "friends",
+      "birthDay": "15",
+      "birthMonth": "3",
+      "birthYear": "1987",
+      "newsletter": false,
+      "id": 28
+    },
+    {
+      "username": "onyx",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "social",
+      "birthDay": "17",
+      "birthMonth": "3",
+      "birthYear": "2003",
+      "newsletter": false,
+      "id": 29
+    },
+    {
+      "username": "kai",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "friends",
+      "birthDay": "16",
+      "birthMonth": "2",
+      "birthYear": "1990",
+      "newsletter": false,
+      "id": 30
+    },
+    {
+      "username": "raen",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "social",
+      "birthDay": "20",
+      "birthMonth": "5",
+      "birthYear": "1988",
+      "newsletter": true,
+      "id": 31
+    },
+    {
+      "username": "sora",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "ad",
+      "birthDay": "8",
+      "birthMonth": "7",
+      "birthYear": "1989",
+      "newsletter": false,
+      "id": 32
+    },
+    {
+      "username": "tycho",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "friends",
+      "birthDay": "8",
+      "birthMonth": "11",
+      "birthYear": "1992",
+      "newsletter": false,
+      "id": 33
+    },
+    {
+      "username": "vyn",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "friends",
+      "birthDay": "13",
+      "birthMonth": "10",
+      "birthYear": "2000",
+      "newsletter": true,
+      "id": 34
+    },
+    {
+      "username": "zeph",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "ad",
+      "birthDay": "19",
+      "birthMonth": "8",
+      "birthYear": "1987",
+      "newsletter": false,
+      "id": 35
+    },
+    {
+      "username": "ember",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "social",
+      "birthDay": "25",
+      "birthMonth": "9",
+      "birthYear": "1981",
+      "newsletter": false,
+      "id": 36
+    },
+    {
+      "username": "faye",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "other",
+      "birthDay": "10",
+      "birthMonth": "9",
+      "birthYear": "1988",
+      "newsletter": false,
+      "id": 37
+    },
+    {
+      "username": "gale",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "social",
+      "birthDay": "12",
+      "birthMonth": "11",
+      "birthYear": "1989",
+      "newsletter": true,
+      "id": 38
+    },
+    {
+      "username": "haze",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "friends",
+      "birthDay": "11",
+      "birthMonth": "12",
+      "birthYear": "1992",
+      "newsletter": true,
+      "id": 39
+    },
+    {
+      "username": "ion",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "ad",
+      "birthDay": "27",
+      "birthMonth": "5",
+      "birthYear": "1985",
+      "newsletter": true,
+      "id": 40
+    },
+    {
+      "username": "juno",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "social",
+      "birthDay": "27",
+      "birthMonth": "5",
+      "birthYear": "1987",
+      "newsletter": false,
+      "id": 41
+    },
+    {
+      "username": "kyro",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "friends",
+      "birthDay": "17",
+      "birthMonth": "5",
+      "birthYear": "1988",
+      "newsletter": true,
+      "id": 42
+    },
+    {
+      "username": "lark",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "ad",
+      "birthDay": "24",
+      "birthMonth": "6",
+      "birthYear": "2007",
+      "newsletter": false,
+      "id": 43
+    },
+    {
+      "username": "maia",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "ad",
+      "birthDay": "12",
+      "birthMonth": "3",
+      "birthYear": "1990",
+      "newsletter": false,
       "id": 44
     },
     {
-      "username": "lynx",
+      "username": "nyx",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "search",
+      "birthDay": "6",
+      "birthMonth": "1",
+      "birthYear": "1999",
+      "newsletter": false,
       "id": 45
     },
     {
-      "username": "delta",
+      "username": "ozzy",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "ad",
+      "birthDay": "7",
+      "birthMonth": "8",
+      "birthYear": "1989",
+      "newsletter": false,
       "id": 46
     },
     {
-      "username": "solara",
+      "username": "pyra",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "female",
+      "source": "ad",
+      "birthDay": "11",
+      "birthMonth": "1",
+      "birthYear": "1992",
+      "newsletter": true,
       "id": 47
     },
     {
-      "username": "horizon",
+      "username": "quill",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "male",
+      "source": "friends",
+      "birthDay": "20",
+      "birthMonth": "7",
+      "birthYear": "2003",
+      "newsletter": false,
       "id": 48
     },
     {
-      "username": "breeze",
+      "username": "rynn",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "social",
+      "birthDay": "1",
+      "birthMonth": "10",
+      "birthYear": "1991",
+      "newsletter": false,
       "id": 49
     },
     {
-      "username": "zen",
+      "username": "syra",
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "gender": "other",
+      "source": "ad",
+      "birthDay": "2",
+      "birthMonth": "5",
+      "birthYear": "1987",
+      "newsletter": true,
       "id": 50
     }
   ]

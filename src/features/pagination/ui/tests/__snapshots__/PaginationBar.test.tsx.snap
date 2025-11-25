@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationBar snapshot renders correctly for first page 1`] = `
+<div>
+  <div
+    class="mt-6 flex items-center justify-center gap-2"
+  >
+    <div
+      class="flex flex-wrap items-center justify-center gap-x-1 gap-y-3"
+    >
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-primary bg-primary text-primary-foreground disabled:cursor-default disabled:opacity-80"
+        disabled=""
+        type="button"
+      >
+        1
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        2
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        3
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        4
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        10
+      </button>
+    </div>
+    <button
+      class="border-border bg-card hover:bg-muted inline-flex h-8 cursor-pointer items-center rounded-md border px-3 text-xs"
+      type="button"
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;
+
+exports[`PaginationBar snapshot renders correctly for middle page 1`] = `
+<div>
+  <div
+    class="mt-6 flex items-center justify-center gap-2"
+  >
+    <button
+      class="border-border bg-card hover:bg-muted inline-flex h-8 cursor-pointer items-center rounded-md border px-3 text-xs"
+      type="button"
+    >
+      Prev
+    </button>
+    <div
+      class="flex flex-wrap items-center justify-center gap-x-1 gap-y-3"
+    >
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        1
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        4
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-primary bg-primary text-primary-foreground disabled:cursor-default disabled:opacity-80"
+        disabled=""
+        type="button"
+      >
+        5
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        6
+      </button>
+      <button
+        class="inline-flex h-8 min-w-8 cursor-pointer items-center justify-center rounded-md border px-2 text-xs font-medium transition border-border bg-card text-foreground hover:bg-muted disabled:cursor-default disabled:opacity-80"
+        type="button"
+      >
+        10
+      </button>
+    </div>
+    <button
+      class="border-border bg-card hover:bg-muted inline-flex h-8 cursor-pointer items-center rounded-md border px-3 text-xs"
+      type="button"
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;

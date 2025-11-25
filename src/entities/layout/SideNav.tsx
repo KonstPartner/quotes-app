@@ -8,17 +8,14 @@ import { ThemeType } from '@features/theme/model';
 import { ToggleTheme } from '@features/theme/ui';
 import { NAV_LINKS } from '@constants';
 
-const SideNav = ({
-  theme,
-  setTheme,
-  isOpen,
-  setIsOpen,
-}: {
+type SideNavProps = {
   theme: ThemeType;
   setTheme: (theme: ThemeType) => void;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-}) => {
+};
+
+const SideNav = ({ theme, setTheme, isOpen, setIsOpen }: SideNavProps) => {
   const closeMenu = () => setIsOpen(false);
 
   return (
@@ -42,7 +39,7 @@ const SideNav = ({
           role="dialog"
           aria-modal="true"
           className={clsx(
-            'bg-background absolute top-0 right-0 flex h-dvh w-64 flex-col gap-3 border-l px-4 py-3 shadow-xl',
+            'bg-background/80 absolute top-0 right-0 flex h-dvh w-64 flex-col gap-3 border-l px-4 py-3 shadow-xl backdrop-blur-md',
             'transition-transform duration-300 ease-out',
             isOpen ? 'translate-x-0' : 'translate-x-full'
           )}
@@ -53,7 +50,7 @@ const SideNav = ({
               type="button"
               aria-label="Close navigation menu"
               onClick={closeMenu}
-              className="hover:bg-muted inline-flex items-center justify-center rounded-md"
+              className="hover:bg-muted inline-flex cursor-pointer items-center justify-center rounded-md"
             >
               <X className="h-8 w-8" aria-hidden="true" />
             </button>

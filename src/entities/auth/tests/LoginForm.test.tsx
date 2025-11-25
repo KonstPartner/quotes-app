@@ -1,64 +1,106 @@
+import { BaseSyntheticEvent, ComponentProps } from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import type { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 import { LoginForm } from '@entities/auth';
+import type { LoginFormValues } from '@features/auth/model';
 
 describe('LoginForm', () => {
+  const renderLoginForm = (
+    props?: Partial<ComponentProps<typeof LoginForm>>
+  ) => {
+    const defaultProps: ComponentProps<typeof LoginForm> = {
+      submitHandler: jest.fn() as (e?: BaseSyntheticEvent) => Promise<void>,
+      onSwitchToRegister: jest.fn(),
+      isPending: false,
+      serverError: null,
+      isSubmitting: false,
+      errors: {},
+      register: (() => ({
+        onChange: () => {},
+        onBlur: () => {},
+        name: '',
+        ref: () => {},
+      })) as unknown as UseFormRegister<LoginFormValues>,
+    };
+
+    return render(<LoginForm {...defaultProps} {...props} />);
+  };
+
   it('renders fields and submit button', () => {
-    render(
-      <LoginForm
-        onSwitchToRegister={jest.fn()}
-        handleLogin={jest.fn()}
-        isPending={false}
-        error={null}
-      />
-    );
+    renderLoginForm();
 
     expect(
       screen.getByRole('heading', { name: /sign in/i })
     ).toBeInTheDocument();
     expect(screen.getByLabelText(/username/i)).toBeInTheDocument();
     expect(
-      screen.getByLabelText(/^password$/i, { selector: 'input' })
+      screen.getByLabelText(/password/i, { selector: 'input' })
     ).toBeInTheDocument();
-
     expect(
       screen.getByRole('button', { name: /sign in/i })
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /create one/i })
+    ).toBeInTheDocument();
   });
 
-  it('calls handleLogin on submit', async () => {
+  it('calls submitHandler on form submit', async () => {
     const user = userEvent.setup();
-    const handleLogin = jest.fn((e) => e.preventDefault());
+    const submitHandler = jest.fn().mockResolvedValue(undefined);
 
-    render(
-      <LoginForm
-        onSwitchToRegister={jest.fn()}
-        handleLogin={handleLogin}
-        isPending={false}
-        error={null}
-      />
-    );
+    renderLoginForm({ submitHandler });
 
-    await user.type(screen.getByLabelText(/^username$/i), 'user');
-    await user.type(screen.getByLabelText(/^password$/i), 'secret123');
+    const button = screen.getByRole('button', { name: /sign in/i });
+    await user.click(button);
 
-    await user.click(screen.getByRole('button', { name: /sign in/i }));
-    expect(handleLogin).toHaveBeenCalledTimes(1);
+    expect(submitHandler).toHaveBeenCalledTimes(1);
   });
 
-  it('shows error message when error is passed', () => {
+  it('shows server error message when serverError is provided', () => {
     const error = new Error('Invalid credentials');
 
-    render(
-      <LoginForm
-        onSwitchToRegister={jest.fn()}
-        handleLogin={jest.fn()}
-        isPending={false}
-        error={error}
-      />
-    );
+    renderLoginForm({ serverError: error });
 
     expect(screen.getByRole('alert')).toHaveTextContent('Invalid credentials');
+  });
+
+  it('shows validation errors for username and password', () => {
+    const errors: FieldErrors<LoginFormValues> = {
+      username: { type: 'required', message: 'Username is required' },
+      password: { type: 'required', message: 'Password is required' },
+    };
+
+    renderLoginForm({ errors });
+
+    expect(screen.getByText(/username is required/i)).toBeInTheDocument();
+    expect(screen.getByText(/password is required/i)).toBeInTheDocument();
+  });
+
+  it('disables submit button when isPending is true', () => {
+    renderLoginForm({ isPending: true });
+
+    const button = screen.getByRole('button', { name: /signing in…/i });
+    expect(button).toBeDisabled();
+  });
+
+  it('disables submit button when isSubmitting is true', () => {
+    renderLoginForm({ isSubmitting: true });
+
+    const button = screen.getByRole('button', { name: /sign in/i });
+    expect(button).toBeDisabled();
+  });
+
+  it('calls onSwitchToRegister when "Create one" button is clicked', async () => {
+    const user = userEvent.setup();
+    const onSwitchToRegister = jest.fn();
+
+    renderLoginForm({ onSwitchToRegister });
+
+    const linkButton = screen.getByRole('button', { name: /create one/i });
+    await user.click(linkButton);
+
+    expect(onSwitchToRegister).toHaveBeenCalledTimes(1);
   });
 });

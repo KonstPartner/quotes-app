@@ -1,35 +1,17 @@
-import { LoginForm, RegisterForm } from '@entities/auth';
-import { useAuthFormSection } from '@features/auth/model';
+import { useState } from 'react';
+
+import { AuthMode } from '@features/auth/model';
+import { LoginSection, RegisterSection } from '@features/auth/ui';
 
 const AuthFormSection = () => {
-  const {
-    mode,
-    handleLogin,
-    isLoginPending,
-    loginError,
-    setMode,
-    handleRegister,
-    isRegisterPending,
-    registerError,
-    passwordError,
-  } = useAuthFormSection();
+  const [mode, setMode] = useState<AuthMode>('login');
 
   return (
     <section>
       {mode === 'login' ? (
-        <LoginForm
-          handleLogin={handleLogin}
-          isPending={isLoginPending}
-          error={loginError}
-          onSwitchToRegister={() => setMode('register')}
-        />
+        <LoginSection setMode={setMode} />
       ) : (
-        <RegisterForm
-          handleRegister={handleRegister}
-          isPending={isRegisterPending}
-          error={passwordError ? new Error(passwordError) : registerError}
-          onSwitchToLogin={() => setMode('login')}
-        />
+        <RegisterSection setMode={setMode} />
       )}
     </section>
   );

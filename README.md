@@ -7,7 +7,7 @@
 Install dependencies:
 
 ```bash
-npm install
+  npm install
 ```
 
 ---
@@ -17,7 +17,7 @@ npm install
 To start the development server:
 
 ```bash
-npm run dev
+  npm run dev
 ```
 
 ---
@@ -27,13 +27,13 @@ npm run dev
 Create a production build:
 
 ```bash
-npm run build
+  npm run build
 ```
 
 Start application:
 
 ```bash
-npm run start
+  npm run start
 ```
 
 ---
@@ -45,7 +45,7 @@ npm run start
 Run json-server:
 
 ```bash
-npm run api
+  npm run api
 ```
 
 > Local API is **available only in local development or production mode**.

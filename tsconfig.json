@@ -20,22 +20,17 @@
       "@app/*": ["./src/app/*"],
       "@app": ["./src/app/index.ts"],
       "@pages/*": ["./src/pages/*"],
-      "@pages": ["./src/pages/index.ts"],
       "@shadcn/*": ["./src/shadcn/*"],
       "@shadcn": ["./src/shadcn/index.ts"],
       "@entities/*": ["./src/entities/*"],
-      "@entities": ["./src/entities/index.ts"],
       "@features/*": ["./src/features/*"],
-      "@features": ["./src/features/index.ts"],
       "@constants/*": ["./src/constants/*"],
       "@constants": ["./src/constants/index.ts"],
       "@utils/*": ["./src/utils/*"],
       "@utils": ["./src/utils/index.ts"],
-      "@shared/*": ["./src/shared/*"],
-      "@shared": ["./src/shared/index.ts"],
       "@hooks/*": ["./src/hooks/*"],
       "@hooks": ["./src/hooks/index.ts"]
     }
   },
-  "include": ["src", "global.d.ts", "src/__tests__"]
+  "include": ["src", "global.d.ts"]
 }

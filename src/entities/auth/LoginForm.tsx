@@ -1,31 +1,41 @@
-import { FormEvent } from 'react';
+import { BaseSyntheticEvent } from 'react';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 import { Button, Input } from '@shadcn';
 import { PasswordInput } from '@entities/auth';
+import { LoginFormValues } from '@features/auth/model';
+
+type LoginFormProps = {
+  submitHandler: (e?: BaseSyntheticEvent) => Promise<void>;
+  onSwitchToRegister: () => void;
+  isPending: boolean;
+  serverError: Error | null;
+  errors: FieldErrors<LoginFormValues>;
+  register: UseFormRegister<LoginFormValues>;
+  isSubmitting: boolean;
+};
 
 const LoginForm = ({
   onSwitchToRegister,
-  handleLogin,
+  submitHandler,
   isPending,
-  error,
-}: {
-  onSwitchToRegister: () => void;
-  handleLogin: (event: FormEvent<HTMLFormElement>) => Promise<void> | void;
-  isPending: boolean;
-  error: Error | null;
-}) => {
+  errors,
+  serverError,
+  register,
+  isSubmitting,
+}: LoginFormProps) => {
   return (
     <form
-      onSubmit={handleLogin}
+      onSubmit={submitHandler}
       className="bg-card mx-auto flex w-full max-w-sm flex-col gap-4 rounded-xl border p-6 shadow-sm"
     >
       <h1 className="text-center text-xl font-semibold tracking-tight">
         Sign in
       </h1>
 
-      {error && (
+      {serverError && (
         <p className="text-destructive text-sm" role="alert">
-          {error.message || 'Failed to login'}
+          {serverError.message || 'Failed to login'}
         </p>
       )}
 
@@ -33,20 +43,40 @@ const LoginForm = ({
         <label className="text-sm font-medium" htmlFor="username">
           Username
         </label>
-        <Input id="username" name="username" autoComplete="username" required />
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <PasswordInput
-          label="Password"
-          id="password"
-          name="password"
-          autoComplete="current-password"
-          required
+        <Input
+          id="username"
+          placeholder="Enter username"
+          autoComplete="username"
+          {...register('username', {
+            required: 'Username is required',
+          })}
         />
+        {errors.username && (
+          <p className="text-destructive text-xs" role="alert">
+            {errors.username.message}
+          </p>
+        )}
       </div>
 
-      <Button type="submit" className="mt-2 w-full">
+      <PasswordInput
+        label="Password"
+        id="password"
+        autoComplete="current-password"
+        {...register('password', {
+          required: 'Password is required',
+        })}
+      />
+      {errors.password && (
+        <p className="text-destructive text-xs" role="alert">
+          {errors.password.message}
+        </p>
+      )}
+
+      <Button
+        type="submit"
+        className="mt-2 w-full cursor-pointer"
+        disabled={isPending || isSubmitting}
+      >
         {isPending ? 'Signing in…' : 'Sign in'}
       </Button>
 
@@ -55,7 +85,7 @@ const LoginForm = ({
         <button
           type="button"
           onClick={onSwitchToRegister}
-          className="text-primary underline-offset-4 hover:underline"
+          className="text-primary cursor-pointer underline-offset-4 hover:underline"
         >
           Create one
         </button>
