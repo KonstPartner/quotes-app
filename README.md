@@ -40,50 +40,50 @@ Live Demo: https://konstpartner.github.io/quotes-app/
 
 ### **Frontend Framework**
 
-* **React 19** — the main UI library
-* **React DOM** — DOM rendering
+- **React 19** — the main UI library
+- **React DOM** — DOM rendering
 
 ### **Routing**
 
-* **TanStack Router** — client-side routing (SPA)
-* **TanStack Router Devtools** — debugging tools
+- **TanStack Router** — client-side routing (SPA)
+- **TanStack Router Devtools** — debugging tools
 
 ### **Data Fetching & State**
 
-* **TanStack Query** — server state management + caching
-* **Apollo Client 4** — GraphQL API layer
-* **React Hook Form** — form management and validation
+- **TanStack Query** — server state management + caching
+- **Apollo Client 4** — GraphQL API layer
+- **React Hook Form** — form management and validation
 
 ### **UI & Styling**
 
-* **Tailwind CSS** — utility-first styling
-* **shadcn/ui (Radix primitives + utilities)** — accessible UI components
-* **class-variance-authority** & **tailwind-merge** — component styling helpers
-* **Lucide React** — icon set
+- **Tailwind CSS** — utility-first styling
+- **shadcn/ui (Radix primitives + utilities)** — accessible UI components
+- **class-variance-authority** & **tailwind-merge** — component styling helpers
+- **Lucide React** — icon set
 
 ### **GraphQL**
 
-* **graphql** — schema & query utilities
+- **graphql** — schema & query utilities
 
 ### **Build System**
 
-* **Vite 7** — fast bundler & dev server
-* **@vitejs/plugin-react** — React integration
+- **Vite 7** — fast bundler & dev server
+- **@vitejs/plugin-react** — React integration
 
 ### **Testing**
 
-* **Jest**
-* **React Testing Library**
-* **User Event**
-* **Jest DOM**, **jsdom environment**
+- **Jest**
+- **React Testing Library**
+- **User Event**
+- **Jest DOM**, **jsdom environment**
 
 ### **Development Tools**
 
-* **ESLint** + plugins
-* **Prettier** + Tailwind plugin
-* **Husky** & **lint-staged** — git hooks
-* **TypeScript**
-* **json-server** — mock REST backend for local development
+- **ESLint** + plugins
+- **Prettier** + Tailwind plugin
+- **Husky** & **lint-staged** — git hooks
+- **TypeScript**
+- **json-server** — mock REST backend for local development
 
 ---
 
