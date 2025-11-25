@@ -8,17 +8,14 @@ import { ThemeType } from '@features/theme/model';
 import { ToggleTheme } from '@features/theme/ui';
 import { NAV_LINKS } from '@constants';
 
-const SideNav = ({
-  theme,
-  setTheme,
-  isOpen,
-  setIsOpen,
-}: {
+type SideNavProps = {
   theme: ThemeType;
   setTheme: (theme: ThemeType) => void;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-}) => {
+};
+
+const SideNav = ({ theme, setTheme, isOpen, setIsOpen }: SideNavProps) => {
   const closeMenu = () => setIsOpen(false);
 
   return (

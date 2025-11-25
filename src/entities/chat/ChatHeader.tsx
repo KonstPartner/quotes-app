@@ -3,17 +3,19 @@ import { MessageCircle, RefreshCw, XCircle } from 'lucide-react';
 import { Button } from '@shadcn';
 import { ChatMessage, ChatStatus } from '@features/chat/model';
 
+type ChatHeaderProps = {
+  status: ChatStatus;
+  messages: ChatMessage[];
+  getStatusLabel: () => string;
+  clearMessages: () => void;
+};
+
 const ChatHeader = ({
   status,
   messages,
   getStatusLabel,
   clearMessages,
-}: {
-  status: ChatStatus;
-  messages: ChatMessage[];
-  getStatusLabel: () => string;
-  clearMessages: () => void;
-}) => {
+}: ChatHeaderProps) => {
   return (
     <div className="border-border flex items-center justify-between border-b px-4 py-2.5">
       <div className="flex items-center gap-2">

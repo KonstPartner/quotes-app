@@ -4,19 +4,21 @@ import { QuotesList } from '@entities/quotes';
 import { PaginationBar } from '@features/pagination/ui';
 import { Quote } from '@features/quotes/model';
 
+type QuotesSectionProps = {
+  listRef: RefObject<HTMLDivElement | null>;
+  quotes: Quote[];
+  metadata: { currentPage: number; totalPages: number };
+  handleScroll: (page: number) => void;
+  isLocal?: boolean;
+};
+
 const QuotesSection = ({
   listRef,
   quotes,
   metadata,
   handleScroll,
   isLocal = false,
-}: {
-  listRef: RefObject<HTMLDivElement | null>;
-  quotes: Quote[];
-  metadata: { currentPage: number; totalPages: number };
-  handleScroll: (page: number) => void;
-  isLocal?: boolean;
-}) => {
+}: QuotesSectionProps) => {
   return (
     <section>
       <QuotesList listRef={listRef} quotes={quotes} isLocal={isLocal} />

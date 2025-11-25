@@ -5,17 +5,14 @@ import AuthButton from '@features/auth/ui/AuthButton';
 import { ThemeType } from '@features/theme/model';
 import { ToggleTheme } from '@features/theme/ui';
 
-const Header = ({
-  theme,
-  setTheme,
-  isOpen,
-  setIsOpen,
-}: {
+type HeaderProps = {
   theme: ThemeType;
   setTheme: (theme: ThemeType) => void;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-}) => {
+};
+
+const Header = ({ theme, setTheme, isOpen, setIsOpen }: HeaderProps) => {
   return (
     <header
       className="bg-background/60 sticky top-0 z-40 flex h-16 justify-center border-b backdrop-blur-md"

@@ -4,6 +4,16 @@ import { Textarea } from '@shadcn';
 import { Input } from '@shadcn';
 import { Button } from '@shadcn';
 
+type QuoteFormProps = {
+  title: string;
+  initialQuote: string;
+  initialAuthor: string;
+  submitLabel: string;
+  isPending: boolean;
+  error: Error | null;
+  onSubmit: (values: { quote: string; author: string }) => Promise<void>;
+};
+
 const QuoteForm = ({
   title,
   initialQuote,
@@ -12,15 +22,7 @@ const QuoteForm = ({
   isPending,
   error,
   onSubmit,
-}: {
-  title: string;
-  initialQuote: string;
-  initialAuthor: string;
-  submitLabel: string;
-  isPending: boolean;
-  error: Error | null;
-  onSubmit: (values: { quote: string; author: string }) => Promise<void>;
-}) => {
+}: QuoteFormProps) => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

@@ -4,19 +4,21 @@ import { Send } from 'lucide-react';
 import { Button, Input } from '@shadcn';
 import { ChatStatus } from '@features/chat/model';
 
+type ChatOperationsProps = {
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  value: string;
+  setValue: (str: string) => void;
+  isWaitingResponse: boolean;
+  status: ChatStatus;
+};
+
 const ChatOperations = ({
   handleSubmit,
   value,
   setValue,
   isWaitingResponse,
   status,
-}: {
-  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
-  value: string;
-  setValue: (str: string) => void;
-  isWaitingResponse: boolean;
-  status: ChatStatus;
-}) => {
+}: ChatOperationsProps) => {
   const isDisabled = status !== 'open';
 
   return (
