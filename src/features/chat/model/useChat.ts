@@ -1,7 +1,7 @@
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 import type { ChatMessage, ChatStatus } from '@features/chat/model';
-import { WEBSOCKET_URL } from '@constants/api';
+import { WEBSOCKET_URL } from '@constants';
 import { createId } from '@utils';
 
 export const useChat = () => {
