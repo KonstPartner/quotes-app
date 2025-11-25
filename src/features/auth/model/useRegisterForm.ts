@@ -1,39 +1,50 @@
-import { FormEvent, useState } from 'react';
 import { useRouter } from '@tanstack/react-router';
+import { useForm } from 'react-hook-form';
 
 import { useRegister } from '@features/auth/api';
-import { hashPassword, useAuth } from '@features/auth/model';
+import {
+  hashPassword,
+  RegisterFormValues,
+  RegisterPayload,
+  useAuth,
+} from '@features/auth/model';
 
 const useRegisterForm = () => {
-  const [passwordError, setPasswordError] = useState<string | null>(null);
-
   const router = useRouter();
   const { login } = useAuth();
-  const { mutateAsync, isPending, error } = useRegister();
+  const { mutateAsync, isPending, error: registerError } = useRegister();
 
-  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors: formErrors, isSubmitting },
+  } = useForm<RegisterFormValues>({
+    mode: 'onBlur',
+    defaultValues: {
+      username: '',
+      password: '',
+      repeatPassword: '',
+      gender: undefined,
+      source: '',
+      birthDay: '',
+      birthMonth: '',
+      birthYear: '',
+      newsletter: false,
+      acceptTerms: false,
+    },
+  });
+  const password = watch('password');
 
-    const formData = new FormData(event.currentTarget);
-    const username = String(formData.get('username') ?? '').trim();
-    const password = String(formData.get('password') ?? '').trim();
-    const repeatPassword = String(formData.get('repeatPassword') ?? '').trim();
+  const submitHandler = handleSubmit(
+    ({ repeatPassword: _, acceptTerms: __, ...payload }) => onSubmit(payload)
+  );
 
-    if (!username || !password) {
-      return;
-    }
-
-    if (password !== repeatPassword) {
-      setPasswordError("Passwords don't match");
-      return;
-    }
-
-    setPasswordError(null);
-
-    const passwordHash = await hashPassword(password);
+  const onSubmit = async (values: RegisterPayload) => {
+    const passwordHash = await hashPassword(values.password);
 
     const user = await mutateAsync({
-      username,
+      ...values,
       password: passwordHash,
     });
 
@@ -41,7 +52,15 @@ const useRegisterForm = () => {
     router.history.back();
   };
 
-  return { handleRegister, isPending, error, passwordError };
+  return {
+    submitHandler,
+    isPending,
+    registerError,
+    formErrors,
+    register,
+    isSubmitting,
+    password,
+  };
 };
 
 export default useRegisterForm;

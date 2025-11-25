@@ -2,13 +2,23 @@ import { LoginForm } from '@entities/auth';
 import { AuthMode, useLoginForm } from '@features/auth/model';
 
 const LoginSection = ({ setMode }: { setMode: (theme: AuthMode) => void }) => {
-  const { handleLogin, isPending, error } = useLoginForm();
+  const {
+    submitHandler,
+    isPending,
+    formErrors,
+    loginError,
+    register,
+    isSubmitting,
+  } = useLoginForm();
 
   return (
     <LoginForm
-      handleLogin={handleLogin}
+      isSubmitting={isSubmitting}
+      submitHandler={submitHandler}
       isPending={isPending}
-      error={error}
+      errors={formErrors}
+      serverError={loginError}
+      register={register}
       onSwitchToRegister={() => setMode('register')}
     />
   );
