@@ -68,13 +68,14 @@
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.551 0.027 264.364);
 
-    --star: oklch(98% 0.02 260);
+    --star: oklch(35% 0.162 264);
     --sky: oklch(20% 0.03 260);
   }
 
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

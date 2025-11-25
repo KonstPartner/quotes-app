@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { QuotesSection } from '@entities/quotes';
 import { useSuspenseQuotes } from '@features/quotes/api';
-import useScrollIntoView from '@hooks/useScrollIntoView';
+import { useScrollIntoView } from '@hooks';
 
 const QuotesContainer = () => {
   const [page, setPage] = useState(1);
