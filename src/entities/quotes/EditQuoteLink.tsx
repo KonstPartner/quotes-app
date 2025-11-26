@@ -3,7 +3,7 @@ import { Pencil } from 'lucide-react';
 
 import { Quote } from '@features/quotes/model';
 
-const EditQuoteIcon = ({ id }: { id: Quote['id'] }) => {
+const EditQuoteLink = ({ id }: { id: Quote['id'] }) => {
   return (
     <Link
       to="/user-quotes/$id/edit"
@@ -16,4 +16,4 @@ const EditQuoteIcon = ({ id }: { id: Quote['id'] }) => {
   );
 };
 
-export default EditQuoteIcon;
+export default EditQuoteLink;

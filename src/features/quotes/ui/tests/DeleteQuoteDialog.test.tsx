@@ -6,6 +6,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { useDeleteLocalQuote } from '@features/quotes/api';
+import type { LocalQuote } from '@features/quotes/model';
 import { DeleteQuoteDialog } from '@features/quotes/ui';
 
 const mockedUseDeleteLocalQuote = useDeleteLocalQuote as jest.MockedFunction<
@@ -14,8 +15,13 @@ const mockedUseDeleteLocalQuote = useDeleteLocalQuote as jest.MockedFunction<
 
 describe('DeleteQuoteDialog', () => {
   const { getByRole, getByText } = screen;
-  const quoteId = 10;
-  const userId = 1;
+
+  const localQuote: LocalQuote = {
+    quote: 'You are always one thought away from a different life.',
+    author: 'Ada Lovelace',
+    userId: 1,
+    id: 10,
+  };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -28,7 +34,7 @@ describe('DeleteQuoteDialog', () => {
       error: null,
     } as unknown as ReturnType<typeof useDeleteLocalQuote>);
 
-    render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
+    render(<DeleteQuoteDialog localQuote={localQuote} />);
 
     const trigger = getByRole('button', { name: /delete this quote/i });
     expect(trigger).toBeInTheDocument();
@@ -44,7 +50,7 @@ describe('DeleteQuoteDialog', () => {
       error: null,
     } as unknown as ReturnType<typeof useDeleteLocalQuote>);
 
-    render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
+    render(<DeleteQuoteDialog localQuote={localQuote} />);
 
     const trigger = getByRole('button', { name: /delete this quote/i });
     await user.click(trigger);
@@ -63,7 +69,7 @@ describe('DeleteQuoteDialog', () => {
       error: null,
     } as unknown as ReturnType<typeof useDeleteLocalQuote>);
 
-    render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
+    render(<DeleteQuoteDialog localQuote={localQuote} />);
 
     const trigger = getByRole('button', { name: /delete this quote/i });
     await user.click(trigger);
@@ -73,7 +79,7 @@ describe('DeleteQuoteDialog', () => {
 
     expect(mutateMock).toHaveBeenCalledTimes(1);
     expect(mutateMock).toHaveBeenCalledWith(
-      { id: quoteId, userId },
+      { id: localQuote.id, userId: localQuote.userId },
       expect.objectContaining({
         onSuccess: expect.any(Function),
       })
@@ -89,7 +95,7 @@ describe('DeleteQuoteDialog', () => {
       error: new Error('Something went wrong'),
     } as unknown as ReturnType<typeof useDeleteLocalQuote>);
 
-    render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
+    render(<DeleteQuoteDialog localQuote={localQuote} />);
 
     const trigger = getByRole('button', { name: /delete this quote/i });
     await user.click(trigger);

@@ -72,8 +72,8 @@ const LoginForm = ({
         {isPending ? 'Signing in…' : 'Sign in'}
       </Button>
 
-      <p className="text-muted-foreground mt-2 text-center text-xs">
-        Don&apos;t have an account?{' '}
+      <div className="text-muted-foreground mt-2 flex justify-center gap-1 text-center text-xs">
+        <span>Don&apos;t have an account?</span>
         <button
           type="button"
           onClick={onSwitchToRegister}
@@ -81,7 +81,7 @@ const LoginForm = ({
         >
           Create one
         </button>
-      </p>
+      </div>
     </form>
   );
 };

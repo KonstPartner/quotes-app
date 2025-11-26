@@ -254,8 +254,8 @@ const RegisterForm = ({ onSwitchToLogin }: { onSwitchToLogin: () => void }) => {
         {isPending || isSubmitting ? 'Creating…' : 'Sign up'}
       </Button>
 
-      <p className="text-muted-foreground mt-2 text-center text-xs">
-        Already have an account?{' '}
+      <div className="text-muted-foreground mt-2 flex justify-center gap-1 text-center text-xs">
+        <span>Already have an account? </span>
         <button
           type="button"
           onClick={onSwitchToLogin}
@@ -263,7 +263,7 @@ const RegisterForm = ({ onSwitchToLogin }: { onSwitchToLogin: () => void }) => {
         >
           Sign in
         </button>
-      </p>
+      </div>
     </form>
   );
 };

@@ -1,6 +1,6 @@
 import { QuoteIcon } from 'lucide-react';
 
-import { EditQuoteIcon } from '@entities/quotes';
+import { EditQuoteLink } from '@entities/quotes';
 import { useAuth } from '@features/auth/model';
 import { LocalQuote, Quote } from '@features/quotes/model';
 import { DeleteQuoteDialog } from '@features/quotes/ui';
@@ -9,12 +9,12 @@ const QuoteCard = ({
   quoteData,
   isLocal = false,
 }: {
-  quoteData: LocalQuote | Quote;
+  quoteData: LocalQuote | (Quote & { userId?: number });
   isLocal?: boolean;
 }) => {
   const { user } = useAuth();
   const { id, author, quote } = quoteData;
-  const isOwn = user && (quoteData as LocalQuote).userId === user.id;
+  const isOwn = Boolean(user && quoteData?.userId === user.id);
 
   return (
     <article className="border-border/40 bg-card/60 relative flex h-full flex-col justify-between gap-4 rounded-xl border p-4 shadow-sm backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -35,11 +35,8 @@ const QuoteCard = ({
         <span>— {author}</span>
         {isLocal && isOwn && (
           <div>
-            <EditQuoteIcon id={id} />
-            <DeleteQuoteDialog
-              quoteId={id}
-              userId={(quoteData as LocalQuote).userId}
-            />
+            <EditQuoteLink id={id} />
+            <DeleteQuoteDialog localQuote={quoteData as LocalQuote} />
           </div>
         )}
       </footer>

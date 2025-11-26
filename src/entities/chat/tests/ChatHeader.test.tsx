@@ -2,14 +2,13 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { ChatHeader } from '@entities/chat';
-import type { ChatMessage } from '@features/chat/model';
 
 describe('ChatHeader', () => {
   const { getByText, getByRole } = screen;
+
   const baseProps = {
     status: 'open' as const,
-    messages: [] as ChatMessage[],
-    getStatusLabel: jest.fn(() => 'Connected'),
+    isDisabled: false,
     clearMessages: jest.fn(),
   };
 
@@ -20,13 +19,14 @@ describe('ChatHeader', () => {
     expect(getByText(/connected/i)).toBeInTheDocument();
   });
 
-  it('disables clear button when there are no messages', () => {
-    render(<ChatHeader {...baseProps} />);
+  it('disables clear button when isDisabled is true', () => {
+    render(<ChatHeader {...baseProps} isDisabled={true} />);
 
-    const clearButton = getByRole('button', {
-      name: /clear messages/i,
-    });
-    expect(clearButton).toBeDisabled();
+    expect(
+      getByRole('button', {
+        name: /clear messages/i,
+      })
+    ).toBeDisabled();
   });
 
   it('enables clear button and calls clearMessages when clicked', async () => {
@@ -36,14 +36,7 @@ describe('ChatHeader', () => {
     render(
       <ChatHeader
         {...baseProps}
-        messages={[
-          {
-            id: '1',
-            text: 'hi',
-            from: 'user',
-            createdAt: new Date().toISOString(),
-          } as ChatMessage,
-        ]}
+        isDisabled={false}
         clearMessages={clearMessages}
       />
     );

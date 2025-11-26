@@ -1,14 +1,19 @@
-import React from 'react';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-const WelcomeSection = (
-  props: Record<'subtitle' | 'title' | 'description', string> & {
-    className?: string;
-  }
-) => {
-  const { subtitle, title, description, className } = props;
+type WelcomeSectionProps = {
+  subtitle: string;
+  title: string;
+  description: string;
+  className?: string;
+};
 
+const WelcomeSection = ({
+  subtitle,
+  title,
+  description,
+  className,
+}: WelcomeSectionProps) => {
   return (
     <section className={twMerge(clsx('space-y-3 text-center', className))}>
       <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase">

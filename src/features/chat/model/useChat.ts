@@ -119,23 +119,9 @@ export const useChat = () => {
     }
   }, [messages]);
 
-  const getStatusLabel = () => {
-    switch (status) {
-      case 'connecting':
-        return 'Connecting…';
-      case 'open':
-        return 'Connected';
-      case 'error':
-        return 'Error';
-      default:
-        return 'Disconnected';
-    }
-  };
-
   return {
     messages,
     status,
-    getStatusLabel,
     handleSubmit,
     clearMessages,
     isWaitingResponse,
