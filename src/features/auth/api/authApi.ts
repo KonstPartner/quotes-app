@@ -22,11 +22,9 @@ export const authApi = {
       throw new Error('User with this username already exists');
     }
 
-    const newUser = await localApi<User>(USERS_PATH, {
+    return await localApi<User>(USERS_PATH, {
       method: 'POST',
       json: payload,
     });
-
-    return newUser;
   },
 };

@@ -5,13 +5,21 @@ import { twMerge } from 'tailwind-merge';
 
 import { Button } from '@shadcn';
 
-const RedirectSection = (
-  props: Record<'title' | 'description' | 'button' | 'to', string> & {
-    className?: string;
-  }
-) => {
-  const { title, description, button, to, className } = props;
+type RedirectSectionProps = {
+  title: string;
+  description: string;
+  button: string;
+  to: string;
+  className?: string;
+};
 
+const RedirectSection = ({
+  title,
+  description,
+  button,
+  to,
+  className,
+}: RedirectSectionProps) => {
   return (
     <section
       className={twMerge(

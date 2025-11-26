@@ -7,7 +7,6 @@ const ChatSection = () => {
   const {
     messages,
     status,
-    getStatusLabel,
     clearMessages,
     isWaitingResponse,
     connect,
@@ -35,8 +34,7 @@ const ChatSection = () => {
       <ChatHeader
         status={status}
         clearMessages={clearMessages}
-        getStatusLabel={getStatusLabel}
-        messages={messages}
+        isDisabled={messages.length === 0}
       />
 
       <ChatMain listRef={listRef} messages={messages} />
@@ -45,7 +43,7 @@ const ChatSection = () => {
         handleSubmit={handleSubmit}
         isWaitingResponse={isWaitingResponse}
         setValue={setValue}
-        status={status}
+        isOpen={status !== 'open'}
         value={value}
       />
     </section>

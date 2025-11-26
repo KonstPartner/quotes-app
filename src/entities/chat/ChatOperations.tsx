@@ -2,14 +2,13 @@ import { FormEvent } from 'react';
 import { Send } from 'lucide-react';
 
 import { Button, Input } from '@shadcn';
-import { ChatStatus } from '@features/chat/model';
 
 type ChatOperationsProps = {
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
   value: string;
   setValue: (str: string) => void;
   isWaitingResponse: boolean;
-  status: ChatStatus;
+  isOpen: boolean;
 };
 
 const ChatOperations = ({
@@ -17,9 +16,9 @@ const ChatOperations = ({
   value,
   setValue,
   isWaitingResponse,
-  status,
+  isOpen,
 }: ChatOperationsProps) => {
-  const isDisabled = status !== 'open' || !value.trim() || isWaitingResponse;
+  const isDisabled = isOpen || !value.trim() || isWaitingResponse;
 
   return (
     <form
@@ -30,7 +29,7 @@ const ChatOperations = ({
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="Type your message"
-        disabled={status !== 'open'}
+        disabled={isOpen}
         aria-label="Message"
       />
       <Button

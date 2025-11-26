@@ -50,8 +50,7 @@ describe('ChatOperations', () => {
       />
     );
 
-    const button = getByRole('button', { name: /send message/i });
-    await user.click(button);
+    await user.click(getByRole('button', { name: /send message/i }));
 
     expect(handleSubmit).toHaveBeenCalledTimes(1);
   });

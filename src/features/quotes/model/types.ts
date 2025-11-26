@@ -4,10 +4,7 @@ export type Quote = {
   author: string;
 };
 
-export type LocalQuote = {
-  id: number;
-  quote: string;
-  author: string;
+export type LocalQuote = Quote & {
   userId: number;
 };
 
@@ -29,9 +26,4 @@ export type CreateQuoteDto = {
   userId: number;
 };
 
-export type UpdateQuoteDto = {
-  id: number;
-  author: string;
-  quote: string;
-  userId: number;
-};
+export type UpdateQuoteDto = LocalQuote;

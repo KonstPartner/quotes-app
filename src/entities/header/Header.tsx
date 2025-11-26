@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
+import { Menu } from 'lucide-react';
 
-import { Burger, Logo, NavBar } from '@entities/header';
-import AuthButton from '@features/auth/ui/AuthButton';
+import { Logo, NavBar } from '@entities/header';
+import { AuthButton } from '@features/auth/ui';
 import { ThemeType } from '@features/theme/model';
 import { ToggleTheme } from '@features/theme/ui';
 
@@ -28,7 +29,19 @@ const Header = ({ theme, setTheme, isOpen, setIsOpen }: HeaderProps) => {
         </div>
 
         <div className="lg:hidden">
-          <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
+          <button
+            type="button"
+            aria-label={
+              isOpen ? 'Close navigation menu' : 'Open navigation menu'
+            }
+            aria-expanded={isOpen}
+            aria-haspopup="dialog"
+            aria-controls="mobile-nav"
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="border-border text-foreground hover:bg-muted flex cursor-pointer items-center justify-center rounded-md"
+          >
+            <Menu className="h-8 w-8" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </header>

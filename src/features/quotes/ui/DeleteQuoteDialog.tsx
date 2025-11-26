@@ -15,19 +15,14 @@ import {
 import { useDeleteLocalQuote } from '@features/quotes/api';
 import type { LocalQuote } from '@features/quotes/model';
 
-const DeleteQuoteDialog = ({
-  quoteId,
-  userId,
-}: {
-  quoteId: LocalQuote['id'];
-  userId: LocalQuote['userId'];
-}) => {
+const DeleteQuoteDialog = ({ localQuote }: { localQuote: LocalQuote }) => {
+  const { id, userId } = localQuote;
   const [open, setOpen] = useState(false);
   const { mutate, isPending, error } = useDeleteLocalQuote();
 
   const handleConfirm = () => {
     mutate(
-      { id: quoteId, userId },
+      { id, userId },
       {
         onSuccess: () => {
           setOpen(false);

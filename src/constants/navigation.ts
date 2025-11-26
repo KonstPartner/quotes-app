@@ -1,4 +1,4 @@
-export const NAV_LINKS: Array<{ to: string; label: string }> = [
+export const NAV_LINKS: { to: string; label: string }[] = [
   { to: '/', label: 'Home' },
   { to: '/quotes', label: 'Quotes' },
   { to: '/user-quotes', label: 'User Quotes' },

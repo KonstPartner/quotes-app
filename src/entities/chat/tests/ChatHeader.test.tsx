@@ -23,10 +23,11 @@ describe('ChatHeader', () => {
   it('disables clear button when there are no messages', () => {
     render(<ChatHeader {...baseProps} />);
 
-    const clearButton = getByRole('button', {
-      name: /clear messages/i,
-    });
-    expect(clearButton).toBeDisabled();
+    expect(
+      getByRole('button', {
+        name: /clear messages/i,
+      })
+    ).toBeDisabled();
   });
 
   it('enables clear button and calls clearMessages when clicked', async () => {
