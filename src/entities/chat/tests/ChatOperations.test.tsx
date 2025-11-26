@@ -6,6 +6,7 @@ import { ChatOperations } from '@entities/chat';
 
 describe('ChatOperations', () => {
   const { getByRole } = screen;
+
   const baseProps = {
     handleSubmit: jest.fn((e: FormEvent<HTMLFormElement>) =>
       e.preventDefault()
@@ -13,14 +14,20 @@ describe('ChatOperations', () => {
     value: '',
     setValue: jest.fn(),
     isWaitingResponse: false,
-    status: 'open' as const,
+    isOpen: false,
   };
 
-  it('disables input and button when status is not open', () => {
-    render(<ChatOperations {...baseProps} status="closed" />);
+  it('disables input and button when chat is open (isOpen = true)', () => {
+    render(
+      <ChatOperations
+        {...baseProps}
+        isOpen={true}
+        value="Hello"
+        isWaitingResponse={false}
+      />
+    );
 
     expect(getByRole('textbox', { name: /message/i })).toBeDisabled();
-
     expect(getByRole('button', { name: /send message/i })).toBeDisabled();
   });
 
@@ -47,6 +54,7 @@ describe('ChatOperations', () => {
         {...baseProps}
         handleSubmit={handleSubmit}
         value="Hi there"
+        isOpen={false}
       />
     );
 
