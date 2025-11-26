@@ -13,6 +13,7 @@ const mockedUseDeleteLocalQuote = useDeleteLocalQuote as jest.MockedFunction<
 >;
 
 describe('DeleteQuoteDialog', () => {
+  const { getByRole, getByText } = screen;
   const quoteId = 10;
   const userId = 1;
 
@@ -29,7 +30,7 @@ describe('DeleteQuoteDialog', () => {
 
     render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
 
-    const trigger = screen.getByRole('button', { name: /delete this quote/i });
+    const trigger = getByRole('button', { name: /delete this quote/i });
     expect(trigger).toBeInTheDocument();
     expect(trigger).toBeEnabled();
   });
@@ -45,13 +46,11 @@ describe('DeleteQuoteDialog', () => {
 
     render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
 
-    const trigger = screen.getByRole('button', { name: /delete this quote/i });
+    const trigger = getByRole('button', { name: /delete this quote/i });
     await user.click(trigger);
 
-    expect(screen.getByText(/delete this quote\?/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/this action cannot be undone/i)
-    ).toBeInTheDocument();
+    expect(getByText(/delete this quote\?/i)).toBeInTheDocument();
+    expect(getByText(/this action cannot be undone/i)).toBeInTheDocument();
   });
 
   it('calls mutate with id and userId on confirm', async () => {
@@ -66,10 +65,10 @@ describe('DeleteQuoteDialog', () => {
 
     render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
 
-    const trigger = screen.getByRole('button', { name: /delete this quote/i });
+    const trigger = getByRole('button', { name: /delete this quote/i });
     await user.click(trigger);
 
-    const confirmButton = screen.getByRole('button', { name: /^delete$/i });
+    const confirmButton = getByRole('button', { name: /^delete$/i });
     await user.click(confirmButton);
 
     expect(mutateMock).toHaveBeenCalledTimes(1);
@@ -92,9 +91,9 @@ describe('DeleteQuoteDialog', () => {
 
     render(<DeleteQuoteDialog quoteId={quoteId} userId={userId} />);
 
-    const trigger = screen.getByRole('button', { name: /delete this quote/i });
+    const trigger = getByRole('button', { name: /delete this quote/i });
     await user.click(trigger);
 
-    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument();
+    expect(getByText(/something went wrong/i)).toBeInTheDocument();
   });
 });

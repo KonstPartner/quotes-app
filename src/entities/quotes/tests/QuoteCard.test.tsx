@@ -12,8 +12,8 @@ import { render } from '@testing-library/react';
 import { QuoteCard } from '@entities/quotes';
 import type { LocalQuote } from '@features/quotes/model';
 
-describe('QuoteCard snapshot', () => {
-  it('renders quote card correctly', () => {
+describe('QuoteCard', () => {
+  it('matches snapshot', () => {
     const mockQuote: LocalQuote = {
       id: 1,
       author: 'Rumi',

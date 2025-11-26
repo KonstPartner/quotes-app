@@ -14,6 +14,8 @@ import { QuotesList } from '@entities/quotes';
 import type { Quote } from '@features/quotes/model';
 
 describe('QuotesList', () => {
+  const { getAllByRole, queryAllByRole } = screen;
+
   it('renders a QuoteCard for each quote', () => {
     const quotes: Quote[] = [
       { id: 1, author: 'Rumi', quote: 'First quote' },
@@ -25,7 +27,7 @@ describe('QuotesList', () => {
 
     render(<QuotesList listRef={listRef} quotes={quotes} />);
 
-    const cards = screen.getAllByRole('article');
+    const cards = getAllByRole('article');
     expect(cards).toHaveLength(quotes.length);
 
     expect(listRef.current).not.toBeNull();
@@ -37,7 +39,7 @@ describe('QuotesList', () => {
 
     render(<QuotesList listRef={listRef} quotes={[]} />);
 
-    const cards = screen.queryAllByRole('article');
+    const cards = queryAllByRole('article');
     expect(cards).toHaveLength(0);
   });
 });

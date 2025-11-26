@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { ChatOperations } from '@entities/chat';
 
 describe('ChatOperations', () => {
+  const { getByRole } = screen;
   const baseProps = {
     handleSubmit: jest.fn((e: FormEvent<HTMLFormElement>) =>
       e.preventDefault()
@@ -18,11 +19,9 @@ describe('ChatOperations', () => {
   it('disables input and button when status is not open', () => {
     render(<ChatOperations {...baseProps} status="closed" />);
 
-    expect(screen.getByRole('textbox', { name: /message/i })).toBeDisabled();
+    expect(getByRole('textbox', { name: /message/i })).toBeDisabled();
 
-    expect(
-      screen.getByRole('button', { name: /send message/i })
-    ).toBeDisabled();
+    expect(getByRole('button', { name: /send message/i })).toBeDisabled();
   });
 
   it('updates value on input change', async () => {
@@ -31,7 +30,7 @@ describe('ChatOperations', () => {
 
     render(<ChatOperations {...baseProps} setValue={setValue} />);
 
-    const input = screen.getByRole('textbox', { name: /message/i });
+    const input = getByRole('textbox', { name: /message/i });
 
     await user.type(input, 'Hello');
     expect(setValue).toHaveBeenCalled();
@@ -51,7 +50,7 @@ describe('ChatOperations', () => {
       />
     );
 
-    const button = screen.getByRole('button', { name: /send message/i });
+    const button = getByRole('button', { name: /send message/i });
     await user.click(button);
 
     expect(handleSubmit).toHaveBeenCalledTimes(1);

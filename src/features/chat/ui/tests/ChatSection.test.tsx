@@ -30,14 +30,14 @@ const createMockChatState = (
 });
 
 describe('ChatSection', () => {
+  const { getByRole, queryByRole } = screen;
+
   it('shows overlay with Start chat when chat is not open', () => {
     mockUseChat.mockReturnValue(createMockChatState({ status: 'closed' }));
 
     render(<ChatSection />);
 
-    expect(
-      screen.getByRole('button', { name: /start chat/i })
-    ).toBeInTheDocument();
+    expect(getByRole('button', { name: /start chat/i })).toBeInTheDocument();
   });
 
   it('calls connect when Start chat is clicked', async () => {
@@ -53,7 +53,7 @@ describe('ChatSection', () => {
 
     render(<ChatSection />);
 
-    const button = screen.getByRole('button', { name: /start chat/i });
+    const button = getByRole('button', { name: /start chat/i });
     await user.click(button);
 
     expect(connect).toHaveBeenCalledTimes(1);
@@ -68,7 +68,7 @@ describe('ChatSection', () => {
 
     render(<ChatSection />);
 
-    const button = screen.getByRole('button', { name: /connecting…/i });
+    const button = getByRole('button', { name: /connecting…/i });
     expect(button).toBeDisabled();
   });
 
@@ -82,10 +82,10 @@ describe('ChatSection', () => {
     render(<ChatSection />);
 
     expect(
-      screen.queryByRole('button', { name: /start chat/i })
+      queryByRole('button', { name: /start chat/i })
     ).not.toBeInTheDocument();
 
-    expect(screen.getByRole('textbox', { name: /message/i })).toBeEnabled();
+    expect(getByRole('textbox', { name: /message/i })).toBeEnabled();
   });
 
   it('matches snapshot when chat is open with messages', () => {

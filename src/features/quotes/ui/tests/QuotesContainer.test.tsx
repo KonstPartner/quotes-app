@@ -13,7 +13,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import { useSuspenseQuotes } from '@features/quotes/api';
 import { QuotesContainer } from '@features/quotes/ui';
-import useScrollIntoView from '@hooks/useScrollIntoView';
+import { useScrollIntoView } from '@hooks';
 
 const mockedUseSuspenseQuotesPage = useSuspenseQuotes as jest.MockedFunction<
   typeof useSuspenseQuotes
@@ -23,6 +23,8 @@ const mockedUseScrollIntoView = useScrollIntoView as jest.MockedFunction<
 >;
 
 describe('QuotesSection', () => {
+  const { getByText, getByRole } = screen;
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -48,11 +50,11 @@ describe('QuotesSection', () => {
 
     render(<QuotesContainer />);
 
-    expect(screen.getByText(/First quote/i)).toBeInTheDocument();
-    expect(screen.getByText(/Second quote/i)).toBeInTheDocument();
+    expect(getByText(/First quote/i)).toBeInTheDocument();
+    expect(getByText(/Second quote/i)).toBeInTheDocument();
 
-    expect(screen.getByRole('button', { name: '1' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: '3' })).toBeInTheDocument();
+    expect(getByRole('button', { name: '1' })).toBeInTheDocument();
+    expect(getByRole('button', { name: '3' })).toBeInTheDocument();
   });
 
   it('calls page change handler when user clicks on another page', () => {
@@ -73,7 +75,7 @@ describe('QuotesSection', () => {
 
     render(<QuotesContainer />);
 
-    const page2Button = screen.getByRole('button', { name: '2' });
+    const page2Button = getByRole('button', { name: '2' });
     fireEvent.click(page2Button);
 
     expect(handleScrollMock).toHaveBeenCalledWith(2);

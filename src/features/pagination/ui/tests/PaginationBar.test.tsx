@@ -2,8 +2,8 @@ import { render } from '@testing-library/react';
 
 import { PaginationBar } from '@features/pagination/ui';
 
-describe('PaginationBar snapshot', () => {
-  it('renders correctly for middle page', () => {
+describe('PaginationBar', () => {
+  it('renders component for middle page and match snapshot', () => {
     const { container } = render(
       <PaginationBar
         metadata={{ totalPages: 10, currentPage: 5 }}
@@ -14,7 +14,7 @@ describe('PaginationBar snapshot', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('renders correctly for first page', () => {
+  it('renders component for first page and match snapshot', () => {
     const { container } = render(
       <PaginationBar
         metadata={{ totalPages: 10, currentPage: 1 }}

@@ -76,7 +76,11 @@ export default [
     },
   },
   {
-    files: ['./src/**/*.test.{ts,tsx}', './src/**/__tests__/**/*.{ts,tsx}'],
+    files: [
+      './src/**/*.test.{ts,tsx}',
+      './src/**/__tests__/**/*.{ts,tsx}',
+      './src/setupTests.ts',
+    ],
     languageOptions: {
       globals: {
         ...globals.jest,

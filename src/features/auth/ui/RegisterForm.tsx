@@ -1,31 +1,18 @@
-import { BaseSyntheticEvent } from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-
 import { Button, Input } from '@shadcn';
 import { PasswordInput } from '@entities/auth';
-import type { RegisterFormValues } from '@features/auth/model';
+import { useRegisterForm } from '@features/auth/model';
 
-type RegisterFormProps = {
-  submitHandler: (e?: BaseSyntheticEvent) => Promise<void>;
-  onSwitchToLogin: () => void;
-  isPending: boolean;
-  serverError: Error | null;
-  errors: FieldErrors<RegisterFormValues>;
-  register: UseFormRegister<RegisterFormValues>;
-  password: string;
-  isSubmitting: boolean;
-};
+const RegisterForm = ({ onSwitchToLogin }: { onSwitchToLogin: () => void }) => {
+  const {
+    submitHandler,
+    isPending,
+    formErrors,
+    serverError,
+    isSubmitting,
+    password,
+    register,
+  } = useRegisterForm();
 
-const RegisterForm = ({
-  register,
-  errors,
-  submitHandler,
-  onSwitchToLogin,
-  isPending,
-  serverError,
-  password,
-  isSubmitting,
-}: RegisterFormProps) => {
   return (
     <form
       onSubmit={submitHandler}
@@ -58,9 +45,9 @@ const RegisterForm = ({
             },
           })}
         />
-        {errors.username && (
+        {formErrors.username && (
           <p className="text-destructive text-xs" role="alert">
-            {errors.username.message}
+            {formErrors.username.message}
           </p>
         )}
       </div>
@@ -78,9 +65,9 @@ const RegisterForm = ({
             },
           })}
         />
-        {errors.password && (
+        {formErrors.password && (
           <p className="text-destructive text-xs" role="alert">
-            {errors.password.message}
+            {formErrors.password.message}
           </p>
         )}
       </div>
@@ -95,9 +82,9 @@ const RegisterForm = ({
             validate: (value) => value === password || "Passwords don't match",
           })}
         />
-        {errors.repeatPassword && (
+        {formErrors.repeatPassword && (
           <p className="text-destructive text-xs" role="alert">
-            {errors.repeatPassword.message}
+            {formErrors.repeatPassword.message}
           </p>
         )}
       </div>
@@ -139,9 +126,9 @@ const RegisterForm = ({
             <span>Other</span>
           </label>
         </div>
-        {errors.gender && (
+        {formErrors.gender && (
           <p className="text-destructive text-xs" role="alert">
-            {errors.gender.message}
+            {formErrors.gender.message}
           </p>
         )}
       </div>
@@ -163,9 +150,9 @@ const RegisterForm = ({
           <option value="social">Social media</option>
           <option value="other">Other</option>
         </select>
-        {errors.source && (
+        {formErrors.source && (
           <p className="text-destructive text-xs" role="alert">
-            {errors.source.message}
+            {formErrors.source.message}
           </p>
         )}
       </div>
@@ -222,11 +209,13 @@ const RegisterForm = ({
             ))}
           </select>
         </div>
-        {(errors.birthDay || errors.birthMonth || errors.birthYear) && (
+        {(formErrors.birthDay ||
+          formErrors.birthMonth ||
+          formErrors.birthYear) && (
           <p className="text-destructive text-xs" role="alert">
-            {errors.birthDay?.message ||
-              errors.birthMonth?.message ||
-              errors.birthYear?.message}
+            {formErrors.birthDay?.message ||
+              formErrors.birthMonth?.message ||
+              formErrors.birthYear?.message}
           </p>
         )}
       </div>
@@ -251,9 +240,9 @@ const RegisterForm = ({
         />
         <span>I accept the terms and conditions</span>
       </label>
-      {errors.acceptTerms && (
+      {formErrors.acceptTerms && (
         <p className="text-destructive text-xs" role="alert">
-          {errors.acceptTerms.message}
+          {formErrors.acceptTerms.message}
         </p>
       )}
 

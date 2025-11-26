@@ -7,7 +7,7 @@ import { hashPassword, LoginFormValues, useAuth } from '@features/auth/model';
 const useLoginForm = () => {
   const router = useRouter();
   const { login } = useAuth();
-  const { mutateAsync, isPending, error: loginError } = useLogin();
+  const { mutateAsync, isPending, error: serverError } = useLogin();
 
   const {
     handleSubmit,
@@ -45,7 +45,7 @@ const useLoginForm = () => {
     register,
     submitHandler,
     isPending,
-    loginError,
+    serverError,
     isSubmitting,
   };
 };

@@ -12,7 +12,7 @@ import {
 const useRegisterForm = () => {
   const router = useRouter();
   const { login } = useAuth();
-  const { mutateAsync, isPending, error: registerError } = useRegister();
+  const { mutateAsync, isPending, error: serverError } = useRegister();
 
   const {
     register,
@@ -55,7 +55,7 @@ const useRegisterForm = () => {
   return {
     submitHandler,
     isPending,
-    registerError,
+    serverError,
     formErrors,
     register,
     isSubmitting,

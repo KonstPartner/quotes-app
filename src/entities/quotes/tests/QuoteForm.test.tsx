@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event';
 import { QuoteForm } from '@entities/quotes';
 
 describe('CreateForm', () => {
+  const { getByRole, getByLabelText, getByText } = screen;
+
   it('renders form fields and submit button', () => {
     const handleSubmitMock = jest.fn(
       async (_: { quote: string; author: string }) => {}
@@ -22,15 +24,13 @@ describe('CreateForm', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: /add your quote/i })
+      getByRole('heading', { name: /add your quote/i })
     ).toBeInTheDocument();
 
-    expect(screen.getByLabelText(/quote/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/author/i)).toBeInTheDocument();
+    expect(getByLabelText(/quote/i)).toBeInTheDocument();
+    expect(getByLabelText(/author/i)).toBeInTheDocument();
 
-    expect(
-      screen.getByRole('button', { name: /save quote/i })
-    ).toBeInTheDocument();
+    expect(getByRole('button', { name: /save quote/i })).toBeInTheDocument();
   });
 
   it('calls handleSubmit when form is submitted', async () => {
@@ -52,7 +52,7 @@ describe('CreateForm', () => {
       />
     );
 
-    const button = screen.getByRole('button', { name: /save quote/i });
+    const button = getByRole('button', { name: /save quote/i });
     await user.click(button);
 
     expect(handleSubmitMock).toHaveBeenCalledTimes(1);
@@ -75,7 +75,7 @@ describe('CreateForm', () => {
       />
     );
 
-    const button = screen.getByRole('button', { name: /saving…/i });
+    const button = getByRole('button', { name: /saving…/i });
 
     expect(button).toBeDisabled();
   });
@@ -97,7 +97,7 @@ describe('CreateForm', () => {
       />
     );
 
-    expect(screen.getByText(/something went wrong/i)).toBeInTheDocument();
+    expect(getByText(/something went wrong/i)).toBeInTheDocument();
   });
 
   it('passes form values to onSubmit', async () => {
@@ -119,9 +119,9 @@ describe('CreateForm', () => {
       />
     );
 
-    const quoteInput = screen.getByLabelText(/quote/i);
-    const authorInput = screen.getByLabelText(/author/i);
-    const button = screen.getByRole('button', { name: /save quote/i });
+    const quoteInput = getByLabelText(/quote/i);
+    const authorInput = getByLabelText(/author/i);
+    const button = getByRole('button', { name: /save quote/i });
 
     await user.type(quoteInput, 'Test quote');
     await user.type(authorInput, 'Test author');
@@ -152,7 +152,7 @@ describe('CreateForm', () => {
       />
     );
 
-    const button = screen.getByRole('button', { name: /save quote/i });
+    const button = getByRole('button', { name: /save quote/i });
 
     await user.click(button);
 

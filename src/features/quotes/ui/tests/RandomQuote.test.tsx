@@ -22,6 +22,8 @@ const mockedUseRandomQuote = useRandomQuote as jest.Mock<
 >;
 
 describe('RandomQuote', () => {
+  const { getByText, getByRole, getByTestId } = screen;
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -38,9 +40,9 @@ describe('RandomQuote', () => {
 
     render(<RandomQuote />);
 
-    expect(screen.getByText(/loading a quote…/i)).toBeInTheDocument();
+    expect(getByText(/loading a quote…/i)).toBeInTheDocument();
 
-    const button = screen.getByRole('button', { name: /finding quote…/i });
+    const button = getByRole('button', { name: /finding quote…/i });
     expect(button).toBeDisabled();
   });
 
@@ -56,7 +58,7 @@ describe('RandomQuote', () => {
 
     render(<RandomQuote />);
 
-    expect(screen.getByText(/failed to load quote: boom/i)).toBeInTheDocument();
+    expect(getByText(/failed to load quote: boom/i)).toBeInTheDocument();
   });
 
   it('renders QuoteCard when quote is loaded', () => {
@@ -71,9 +73,9 @@ describe('RandomQuote', () => {
 
     render(<RandomQuote />);
 
-    expect(screen.getByTestId('quote-card')).toHaveTextContent('Test quote');
+    expect(getByTestId('quote-card')).toHaveTextContent('Test quote');
 
-    const button = screen.getByRole('button', { name: /find another/i });
+    const button = getByRole('button', { name: /find another/i });
     expect(button).toBeEnabled();
   });
 
@@ -92,7 +94,7 @@ describe('RandomQuote', () => {
 
     render(<RandomQuote />);
 
-    const button = screen.getByRole('button', { name: /find another/i });
+    const button = getByRole('button', { name: /find another/i });
 
     await user.click(button);
 

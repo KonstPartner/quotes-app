@@ -19,7 +19,7 @@ const ChatOperations = ({
   isWaitingResponse,
   status,
 }: ChatOperationsProps) => {
-  const isDisabled = status !== 'open';
+  const isDisabled = status !== 'open' || !value.trim() || isWaitingResponse;
 
   return (
     <form
@@ -30,13 +30,13 @@ const ChatOperations = ({
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="Type your message"
-        disabled={isDisabled}
+        disabled={status !== 'open'}
         aria-label="Message"
       />
       <Button
         type="submit"
         size="icon"
-        disabled={isDisabled || !value.trim() || isWaitingResponse}
+        disabled={isDisabled}
         className="shrink-0 cursor-pointer"
       >
         <Send className="h-4 w-4" aria-hidden="true" />

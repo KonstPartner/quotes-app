@@ -38,6 +38,8 @@ jest.mock('@entities/shared', () => ({
 }));
 
 describe('PostsContainer', () => {
+  const { getByText, queryByTestId } = screen;
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -58,8 +60,8 @@ describe('PostsContainer', () => {
 
     render(<PostsContainer />);
 
-    expect(screen.getByText(/loading…/i)).toBeInTheDocument();
-    expect(screen.queryByTestId('posts-section')).not.toBeInTheDocument();
+    expect(getByText(/loading…/i)).toBeInTheDocument();
+    expect(queryByTestId('posts-section')).not.toBeInTheDocument();
   });
 
   it('renders ErrorSection when error is present and refetch is called on Retry', () => {
@@ -80,7 +82,7 @@ describe('PostsContainer', () => {
 
     render(<PostsContainer />);
 
-    const retryButton = screen.getByText(/retry/i);
+    const retryButton = getByText(/retry/i);
     fireEvent.click(retryButton);
 
     expect(refetchMock).toHaveBeenCalledTimes(1);
