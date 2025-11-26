@@ -5,11 +5,13 @@ import { ChatMain } from '@entities/chat';
 import type { ChatMessage as ChatMessageType } from '@features/chat/model';
 
 describe('ChatMain', () => {
+  const { getByText } = screen;
+
   it('shows empty state when no messages', () => {
     const ref = createRef<HTMLDivElement>();
     render(<ChatMain messages={[]} listRef={ref} />);
 
-    expect(screen.getByText(/conversation is empty/i)).toBeInTheDocument();
+    expect(getByText(/conversation is empty/i)).toBeInTheDocument();
   });
 
   it('renders messages list when messages exist', () => {
@@ -25,6 +27,6 @@ describe('ChatMain', () => {
 
     render(<ChatMain messages={messages} listRef={ref} />);
 
-    expect(screen.getByText(/hello/i)).toBeInTheDocument();
+    expect(getByText(/hello/i)).toBeInTheDocument();
   });
 });

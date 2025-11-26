@@ -12,6 +12,7 @@ jest.mock('@tanstack/react-router', () => ({
 }));
 
 describe('RedirectSection', () => {
+  const { getByRole, getByText, getByTestId } = screen;
   const defaultProps = {
     title: 'User created quotes',
     description: 'View quotes added by users.',
@@ -23,22 +24,20 @@ describe('RedirectSection', () => {
     render(<RedirectSection {...defaultProps} />);
 
     expect(
-      screen.getByRole('heading', { name: /user created quotes/i })
+      getByRole('heading', { name: /user created quotes/i })
     ).toBeInTheDocument();
 
-    expect(
-      screen.getByText(/view quotes added by users\./i)
-    ).toBeInTheDocument();
+    expect(getByText(/view quotes added by users\./i)).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: /go to user quotes/i })
+      getByRole('button', { name: /go to user quotes/i })
     ).toBeInTheDocument();
   });
 
   it('renders link with correct "to" (href)', () => {
     render(<RedirectSection {...defaultProps} />);
 
-    const link = screen.getByTestId('redirect-link');
+    const link = getByTestId('redirect-link');
     expect(link).toHaveAttribute('href', '/user-quotes');
   });
 

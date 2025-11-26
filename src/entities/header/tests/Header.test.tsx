@@ -1,3 +1,9 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import { Header } from '@entities/header';
+import type { ThemeType } from '@features/theme/model';
+
 jest.mock('@tanstack/react-router', () => {
   const actual = jest.requireActual('@tanstack/react-router');
   return {
@@ -11,17 +17,11 @@ jest.mock('@features/auth/ui/AuthButton', () => ({
   default: () => <button>Auth</button>,
 }));
 
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
-import { Header } from '@entities/header';
-import type { ThemeType } from '@features/theme/model';
-
 describe('Header', () => {
+  const setTheme = jest.fn();
+  const setIsOpen = jest.fn();
+  const { getByRole } = screen;
   const renderHeader = (theme: ThemeType = 'light') => {
-    const setTheme = jest.fn();
-    const setIsOpen = jest.fn();
-
     const utils = render(
       <Header
         theme={theme}
@@ -37,17 +37,17 @@ describe('Header', () => {
   it('renders banner, nav and theme toggle', () => {
     renderHeader();
 
-    const banner = screen.getByRole('banner');
+    const banner = getByRole('banner');
 
     expect(banner).toBeInTheDocument();
 
-    const themeToggle = screen.getByRole('radiogroup', {
+    const themeToggle = getByRole('radiogroup', {
       name: /color theme/i,
     });
 
     expect(themeToggle).toBeInTheDocument();
 
-    const burgerButton = screen.getByRole('button', {
+    const burgerButton = getByRole('button', {
       name: /open navigation menu/i,
     });
 
@@ -56,8 +56,6 @@ describe('Header', () => {
 
   it('calls setIsOpen when burger is clicked', async () => {
     const user = userEvent.setup();
-    const setTheme = jest.fn();
-    const setIsOpen = jest.fn();
 
     render(
       <Header
@@ -68,7 +66,7 @@ describe('Header', () => {
       />
     );
 
-    const burgerButton = screen.getByRole('button', {
+    const burgerButton = getByRole('button', {
       name: /open navigation menu/i,
     });
 
@@ -79,9 +77,6 @@ describe('Header', () => {
   });
 
   it('matches snapshot', () => {
-    const setTheme = jest.fn();
-    const setIsOpen = jest.fn();
-
     const { container } = render(
       <Header
         theme="light"

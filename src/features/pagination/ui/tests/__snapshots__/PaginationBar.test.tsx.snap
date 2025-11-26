@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PaginationBar snapshot renders correctly for first page 1`] = `
+exports[`PaginationBar renders component for first page and match snapshot 1`] = `
 <div>
   <div
     class="mt-6 flex items-center justify-center gap-2"
@@ -50,7 +50,7 @@ exports[`PaginationBar snapshot renders correctly for first page 1`] = `
 </div>
 `;
 
-exports[`PaginationBar snapshot renders correctly for middle page 1`] = `
+exports[`PaginationBar renders component for middle page and match snapshot 1`] = `
 <div>
   <div
     class="mt-6 flex items-center justify-center gap-2"

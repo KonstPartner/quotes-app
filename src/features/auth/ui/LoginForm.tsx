@@ -1,29 +1,21 @@
-import { BaseSyntheticEvent } from 'react';
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-
 import { Button, Input } from '@shadcn';
 import { PasswordInput } from '@entities/auth';
-import { LoginFormValues } from '@features/auth/model';
-
-type LoginFormProps = {
-  submitHandler: (e?: BaseSyntheticEvent) => Promise<void>;
-  onSwitchToRegister: () => void;
-  isPending: boolean;
-  serverError: Error | null;
-  errors: FieldErrors<LoginFormValues>;
-  register: UseFormRegister<LoginFormValues>;
-  isSubmitting: boolean;
-};
+import { useLoginForm } from '@features/auth/model';
 
 const LoginForm = ({
   onSwitchToRegister,
-  submitHandler,
-  isPending,
-  errors,
-  serverError,
-  register,
-  isSubmitting,
-}: LoginFormProps) => {
+}: {
+  onSwitchToRegister: () => void;
+}) => {
+  const {
+    submitHandler,
+    isPending,
+    formErrors,
+    serverError,
+    register,
+    isSubmitting,
+  } = useLoginForm();
+
   return (
     <form
       onSubmit={submitHandler}
@@ -51,9 +43,9 @@ const LoginForm = ({
             required: 'Username is required',
           })}
         />
-        {errors.username && (
+        {formErrors.username && (
           <p className="text-destructive text-xs" role="alert">
-            {errors.username.message}
+            {formErrors.username.message}
           </p>
         )}
       </div>
@@ -66,9 +58,9 @@ const LoginForm = ({
           required: 'Password is required',
         })}
       />
-      {errors.password && (
+      {formErrors.password && (
         <p className="text-destructive text-xs" role="alert">
-          {errors.password.message}
+          {formErrors.password.message}
         </p>
       )}
 

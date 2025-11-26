@@ -4,14 +4,16 @@ import userEvent from '@testing-library/user-event';
 import { ToggleTheme } from '@features/theme/ui';
 
 describe('ToggleTheme', () => {
+  const { getByRole } = screen;
+
   it('marks only light button as checked when theme="light"', () => {
     const setTheme = jest.fn();
 
     render(<ToggleTheme theme="light" setTheme={setTheme} />);
 
-    const lightButton = screen.getByRole('radio', { name: /light theme/i });
-    const darkButton = screen.getByRole('radio', { name: /dark theme/i });
-    const systemButton = screen.getByRole('radio', { name: /system theme/i });
+    const lightButton = getByRole('radio', { name: /light theme/i });
+    const darkButton = getByRole('radio', { name: /dark theme/i });
+    const systemButton = getByRole('radio', { name: /system theme/i });
 
     expect(lightButton).toHaveAttribute('aria-checked', 'true');
     expect(darkButton).toHaveAttribute('aria-checked', 'false');
@@ -24,7 +26,7 @@ describe('ToggleTheme', () => {
 
     render(<ToggleTheme theme="light" setTheme={setTheme} />);
 
-    const darkButton = screen.getByRole('radio', { name: /dark theme/i });
+    const darkButton = getByRole('radio', { name: /dark theme/i });
 
     await user.click(darkButton);
 

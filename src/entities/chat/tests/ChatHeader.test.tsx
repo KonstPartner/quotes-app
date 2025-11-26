@@ -5,6 +5,7 @@ import { ChatHeader } from '@entities/chat';
 import type { ChatMessage } from '@features/chat/model';
 
 describe('ChatHeader', () => {
+  const { getByText, getByRole } = screen;
   const baseProps = {
     status: 'open' as const,
     messages: [] as ChatMessage[],
@@ -15,14 +16,14 @@ describe('ChatHeader', () => {
   it('renders title and status label', () => {
     render(<ChatHeader {...baseProps} />);
 
-    expect(screen.getByText(/echo chat/i)).toBeInTheDocument();
-    expect(screen.getByText(/connected/i)).toBeInTheDocument();
+    expect(getByText(/echo chat/i)).toBeInTheDocument();
+    expect(getByText(/connected/i)).toBeInTheDocument();
   });
 
   it('disables clear button when there are no messages', () => {
     render(<ChatHeader {...baseProps} />);
 
-    const clearButton = screen.getByRole('button', {
+    const clearButton = getByRole('button', {
       name: /clear messages/i,
     });
     expect(clearButton).toBeDisabled();
@@ -47,7 +48,7 @@ describe('ChatHeader', () => {
       />
     );
 
-    const clearButton = screen.getByRole('button', {
+    const clearButton = getByRole('button', {
       name: /clear messages/i,
     });
 

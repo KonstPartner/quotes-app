@@ -16,6 +16,18 @@ const ChatHeader = ({
   getStatusLabel,
   clearMessages,
 }: ChatHeaderProps) => {
+  let statusLabelStyles = '';
+
+  if (status === 'open') {
+    statusLabelStyles =
+      'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200';
+  } else if (status === 'connecting') {
+    statusLabelStyles =
+      'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200';
+  } else {
+    statusLabelStyles = 'bg-destructive/15 text-destructive';
+  }
+
   return (
     <div className="border-border flex items-center justify-between border-b px-4 py-2.5">
       <div className="flex items-center gap-2">
@@ -36,11 +48,7 @@ const ChatHeader = ({
         <span
           className={
             'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[0.65rem] ' +
-            (status === 'open'
-              ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200'
-              : status === 'connecting'
-                ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200'
-                : 'bg-destructive/15 text-destructive')
+            statusLabelStyles
           }
         >
           <span className="h-1.5 w-1.5 rounded-full bg-current" />

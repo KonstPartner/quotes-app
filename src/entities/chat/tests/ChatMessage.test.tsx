@@ -4,6 +4,7 @@ import { ChatMessage } from '@entities/chat';
 import type { ChatMessage as ChatMessageType } from '@features/chat/model';
 
 describe('ChatMessage', () => {
+  const { getByText } = screen;
   const baseMessage: ChatMessageType = {
     id: '1',
     text: 'Test message',
@@ -14,8 +15,8 @@ describe('ChatMessage', () => {
   it('renders user message with label "You"', () => {
     render(<ChatMessage message={baseMessage} />);
 
-    expect(screen.getByText(/test message/i)).toBeInTheDocument();
-    expect(screen.getByText(/you/i)).toBeInTheDocument();
+    expect(getByText(/test message/i)).toBeInTheDocument();
+    expect(getByText(/you/i)).toBeInTheDocument();
   });
 
   it('renders server message with label "Server"', () => {
@@ -23,6 +24,6 @@ describe('ChatMessage', () => {
       <ChatMessage message={{ ...baseMessage, from: 'server' as const }} />
     );
 
-    expect(screen.getByText(/server/i)).toBeInTheDocument();
+    expect(getByText(/server/i)).toBeInTheDocument();
   });
 });

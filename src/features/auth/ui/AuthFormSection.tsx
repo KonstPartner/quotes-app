@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { AuthMode } from '@features/auth/model';
-import { LoginSection, RegisterSection } from '@features/auth/ui';
+import { LoginForm, RegisterForm } from '@features/auth/ui';
 
 const AuthFormSection = () => {
   const [mode, setMode] = useState<AuthMode>('login');
@@ -9,9 +9,9 @@ const AuthFormSection = () => {
   return (
     <section>
       {mode === 'login' ? (
-        <LoginSection setMode={setMode} />
+        <LoginForm onSwitchToRegister={() => setMode('register')} />
       ) : (
-        <RegisterSection setMode={setMode} />
+        <RegisterForm onSwitchToLogin={() => setMode('login')} />
       )}
     </section>
   );
