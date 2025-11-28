@@ -14,7 +14,6 @@ import type {
   LocalQuotesResponse,
   Quote,
   QuotesResponse,
-  UpdateQuoteDto,
 } from '@features/quotes/model';
 import { dummyApi, localApi } from '@constants/api';
 
@@ -61,7 +60,7 @@ export const localQuotesApi = {
       json: payload,
     }),
 
-  updateLocalQuote: (payload: UpdateQuoteDto) =>
+  updateLocalQuote: (payload: LocalQuote) =>
     localApi<LocalQuote>(`${API_QUOTES_PATH}/${payload.id}`, {
       method: 'PATCH',
       json: {

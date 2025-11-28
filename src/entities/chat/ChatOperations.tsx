@@ -8,7 +8,7 @@ type ChatOperationsProps = {
   value: string;
   setValue: (str: string) => void;
   isWaitingResponse: boolean;
-  isOpen: boolean;
+  isChatOpened: boolean;
 };
 
 const ChatOperations = ({
@@ -16,9 +16,9 @@ const ChatOperations = ({
   value,
   setValue,
   isWaitingResponse,
-  isOpen,
+  isChatOpened,
 }: ChatOperationsProps) => {
-  const isDisabled = isOpen || !value.trim() || isWaitingResponse;
+  const isSendDisabled = !isChatOpened || !value.trim() || isWaitingResponse;
 
   return (
     <form
@@ -29,13 +29,12 @@ const ChatOperations = ({
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="Type your message"
-        disabled={isOpen}
         aria-label="Message"
       />
       <Button
         type="submit"
         size="icon"
-        disabled={isDisabled}
+        disabled={isSendDisabled}
         className="shrink-0 cursor-pointer"
       >
         <Send className="h-4 w-4" aria-hidden="true" />

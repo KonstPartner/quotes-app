@@ -43,7 +43,7 @@ const ChatSection = () => {
         handleSubmit={handleSubmit}
         isWaitingResponse={isWaitingResponse}
         setValue={setValue}
-        isOpen={status !== 'open'}
+        isChatOpened={status === 'open'}
         value={value}
       />
     </section>
