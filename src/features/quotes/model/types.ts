@@ -25,5 +25,3 @@ export type CreateQuoteDto = {
   quote: string;
   userId: number;
 };
-
-export type UpdateQuoteDto = LocalQuote;

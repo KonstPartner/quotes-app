@@ -11,7 +11,6 @@ import {
   CreateQuoteDto,
   LocalQuote,
   LocalQuotesResponse,
-  UpdateQuoteDto,
 } from '@features/quotes/model';
 
 export const useSuspenseQuotes = (page: number) => {
@@ -63,7 +62,7 @@ export const useUpdateLocalQuote = () => {
   const { user } = useAuth();
 
   return useMutation({
-    mutationFn: (payload: UpdateQuoteDto) => {
+    mutationFn: (payload: LocalQuote) => {
       if (!user) {
         throw new Error('You must be logged in to update a quote');
       }
