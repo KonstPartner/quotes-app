@@ -14,20 +14,46 @@ describe('ChatOperations', () => {
     value: '',
     setValue: jest.fn(),
     isWaitingResponse: false,
-    isOpen: false,
+    isChatOpened: false,
   };
 
-  it('disables input and button when chat is open (isOpen = true)', () => {
+  it('disables send button when chat is closed (isChatOpened = false)', () => {
     render(
       <ChatOperations
         {...baseProps}
-        isOpen={true}
+        isChatOpened={false}
         value="Hello"
         isWaitingResponse={false}
       />
     );
 
-    expect(getByRole('textbox', { name: /message/i })).toBeDisabled();
+    expect(getByRole('textbox', { name: /message/i })).toBeEnabled();
+    expect(getByRole('button', { name: /send message/i })).toBeDisabled();
+  });
+
+  it('disables send button when value is empty', () => {
+    render(
+      <ChatOperations
+        {...baseProps}
+        isChatOpened={true}
+        value=""
+        isWaitingResponse={false}
+      />
+    );
+
+    expect(getByRole('button', { name: /send message/i })).toBeDisabled();
+  });
+
+  it('disables send button when waiting for response', () => {
+    render(
+      <ChatOperations
+        {...baseProps}
+        isChatOpened={true}
+        value="Hello"
+        isWaitingResponse={true}
+      />
+    );
+
     expect(getByRole('button', { name: /send message/i })).toBeDisabled();
   });
 
@@ -35,11 +61,11 @@ describe('ChatOperations', () => {
     const user = userEvent.setup();
     const setValue = jest.fn();
 
-    render(<ChatOperations {...baseProps} setValue={setValue} />);
+    render(
+      <ChatOperations {...baseProps} setValue={setValue} isChatOpened={true} />
+    );
 
-    const input = getByRole('textbox', { name: /message/i });
-
-    await user.type(input, 'Hello');
+    await user.type(getByRole('textbox', { name: /message/i }), 'Hello');
     expect(setValue).toHaveBeenCalled();
   });
 
@@ -54,7 +80,8 @@ describe('ChatOperations', () => {
         {...baseProps}
         handleSubmit={handleSubmit}
         value="Hi there"
-        isOpen={false}
+        isChatOpened={true}
+        isWaitingResponse={false}
       />
     );
 
