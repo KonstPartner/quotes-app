@@ -26,8 +26,8 @@ describe('Header', () => {
       <Header
         theme={theme}
         setTheme={setTheme}
-        isOpen={false}
-        setIsOpen={setIsOpen}
+        isOpenSidebar={false}
+        setIsOpenSidebar={setIsOpen}
       />
     );
 
@@ -61,8 +61,8 @@ describe('Header', () => {
       <Header
         theme="light"
         setTheme={setTheme}
-        isOpen={false}
-        setIsOpen={setIsOpen}
+        isOpenSidebar={false}
+        setIsOpenSidebar={setIsOpen}
       />
     );
 
@@ -81,8 +81,8 @@ describe('Header', () => {
       <Header
         theme="light"
         setTheme={setTheme}
-        isOpen={false}
-        setIsOpen={setIsOpen}
+        isOpenSidebar={false}
+        setIsOpenSidebar={setIsOpen}
       />
     );
 
