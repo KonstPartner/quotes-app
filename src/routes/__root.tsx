@@ -7,21 +7,21 @@ import { Footer, SideNav } from '@entities/layout';
 import { useTheme } from '@features/theme/model';
 
 const RootLayout = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false);
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="bg-sky-star bg-sky-star-blur flex min-h-screen flex-col gap-13">
+    <div className="bg-sky-star flex min-h-screen flex-col gap-13">
       <Header
         theme={theme}
         setTheme={setTheme}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
+        isOpenSidebar={isOpenSidebar}
+        setIsOpenSidebar={setIsOpenSidebar}
       />
 
       <SideNav
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
+        isOpen={isOpenSidebar}
+        setIsOpen={setIsOpenSidebar}
         theme={theme}
         setTheme={setTheme}
       />

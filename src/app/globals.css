@@ -155,10 +155,6 @@
       var(--sky) 100%
     );
   }
-
-  .bg-sky-star-blur {
-    backdrop-filter: blur(40px);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

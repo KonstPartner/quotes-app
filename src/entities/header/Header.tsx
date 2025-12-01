@@ -9,11 +9,16 @@ import { ToggleTheme } from '@features/theme/ui';
 type HeaderProps = {
   theme: ThemeType;
   setTheme: (theme: ThemeType) => void;
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  isOpenSidebar: boolean;
+  setIsOpenSidebar: Dispatch<SetStateAction<boolean>>;
 };
 
-const Header = ({ theme, setTheme, isOpen, setIsOpen }: HeaderProps) => {
+const Header = ({
+  theme,
+  setTheme,
+  isOpenSidebar,
+  setIsOpenSidebar,
+}: HeaderProps) => {
   return (
     <header
       className="bg-background/60 sticky top-0 z-40 flex h-16 justify-center border-b backdrop-blur-md"
@@ -32,12 +37,12 @@ const Header = ({ theme, setTheme, isOpen, setIsOpen }: HeaderProps) => {
           <button
             type="button"
             aria-label={
-              isOpen ? 'Close navigation menu' : 'Open navigation menu'
+              isOpenSidebar ? 'Close navigation menu' : 'Open navigation menu'
             }
-            aria-expanded={isOpen}
+            aria-expanded={isOpenSidebar}
             aria-haspopup="dialog"
             aria-controls="mobile-nav"
-            onClick={() => setIsOpen((prev) => !prev)}
+            onClick={() => setIsOpenSidebar((prev) => !prev)}
             className="border-border text-foreground hover:bg-muted flex cursor-pointer items-center justify-center rounded-md"
           >
             <Menu className="h-8 w-8" aria-hidden="true" />
